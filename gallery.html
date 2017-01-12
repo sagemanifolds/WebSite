@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>SageManifolds: gallery</title>
+<meta name="keywords" content="">
+<meta name="description" content="SageManifolds: differential geometry and tensor calculus with SageMath">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic|Roboto">
+<link rel="stylesheet" type="text/css" href="style.css" media="all">
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+<body>
+
+<!-- header -->
+<div id="header-wrapper">
+    <div id="header" class="container">
+
+        <div id="logo">
+            <h1><a href="index.html">SageManifolds</a></h1>
+            <h3><a href="index.html">Differential geometry and tensor calculus with SageMath</a></h3>
+        </div>
+
+        <nav class="topmenu">
+            <ul>
+                <li class="first"><a href="index.html" accesskey="1" title="">Home</a></li>
+                <li><a href="download.html" accesskey="2" title="">Download</a></li>
+                <li><a href="examples.html" accesskey="3" title="">Examples</a></li>
+                <li><a href="documentation.html" accesskey="4" title="">Documentation</a></li>
+                <li class="active"><a href="gallery.html" accesskey="5" title="">Gallery</a></li>
+                <li><a href="contrib.html" accesskey="6" title="">Contribute</a></li>
+                <li><a href="contact.html" accesskey="7" title="">Contact/Help</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- wrapper -->
+<div id="wrapper">
+    <div id="page" class="container">
+
+        <main>
+
+<h2>Gallery</h2>
+
+<p>Here are some figures produced with SageManifolds:</p>
+
+<ul class="default">
+    <li><strong>Stereographic coordinates on the 2-sphere:</strong><br>
+        <div style="display: inline-block; margin-top:20px;">
+        <img width=80% src="images/sphere_S2_stereo.png">
+        </div>
+        <p>
+        This represents the coordinate grids of the two stereographic charts
+        on the 2-dimensional sphere: in red (resp. green), stereographic
+        coordinates from the North pole N (resp. South pole S). This figure is
+        produced with the method <code>plot()</code> of SageManifolds charts. The corresponding
+        worksheet is <a href="http://nbviewer.jupyter.org/github/sagemanifolds/SageManifolds/blob/master/Worksheets/v1.0/SM_sphere_S2.ipynb" target="_blank">here</a>.
+        </p>
+    </li>
+    <li><strong>Vector frame of stereographic coordinates on the 2-sphere:</strong><br>
+        <div style="display: inline-block; margin-top:10px;">
+        <img width=70% src="images/sphere_stereo_frame.jpg">
+        </div>
+        <p>
+        This represents the vector frame \(\left(\frac{\partial}{\partial x},
+        \frac{\partial}{\partial y}\right)\)
+        on the 2-dimensional sphere, which is associated with the stereographic
+        coordinates \((x,y)\) from the North pole. The vector field
+        \(\frac{\partial}{\partial x}\)
+        (resp. \(\frac{\partial}{\partial y}\)) is represented in blue
+        (resp. in red). This figure is
+        produced with the method <code>plot()</code> of SageManifolds vector fields.
+        The corresponding
+        worksheet is <a href="http://nbviewer.jupyter.org/github/sagemanifolds/SageManifolds/blob/master/Worksheets/v1.0/SM_sphere_S2.ipynb" target="_blank">here</a>.
+        </p>
+    </li>
+    <li><strong>A curve on the 2-sphere:</strong><br>
+        <div style="display: inline-block; margin-top:20px;">
+        <img width=90% src="images/sphere_loxodrome.jpg">
+        </div>
+        <p>
+        This represents a loxodrome of the sphere with its tangent vector
+        field. This figure is
+        produced with the methods <code>DifferentiableCurve.plot()</code>
+        and <code>VectorField.plot()</code>. The corresponding
+        worksheet is
+        <a href="http://nbviewer.jupyter.org/github/sagemanifolds/SageManifolds/blob/master/Worksheets/v1.0/SM_sphere_S2.ipynb" target="_blank">here</a>.
+        </p>
+    </li>
+   <li><strong>Boy surface:</strong><br>
+        <div style="display: inline-block; margin-top:20px;">
+        <img width=80% src="images/boy_surface.png">
+        </div>
+        <p>
+        This represents the coordinate grids of three charts (red, green and blue)
+        covering the real projective plane \(\mathbb{RP}^2 \), the latter being
+        immersed in the Euclidean space \(\mathbb{R}^3\) by the Apéry Map (Boy surface).
+        This figure is produced with the method <code>plot()</code> of SageManifolds charts.
+        The corresponding worksheet is <a href="http://nbviewer.jupyter.org/github/sagemanifolds/SageManifolds/blob/master/Worksheets/v1.0/SM_projective_plane.ipynb" target="_blank">here</a>.
+        </p>
+    </li>
+    <li><strong>Kruskal diagram of Schwarzschild spacetime:</strong><br>
+        <div style="display: inline-block; margin-top:20px;">
+        <img width=70% src="images/Kruskal_diag.png">
+        </div>
+        <p>
+        This represents the coordinate grid of the standard Schwarzschild-Droste coordinates
+        \((t,r,\theta,\varphi)\) in terms of the Kruskal-Szekeres coordinates
+        \((U,V,\theta,\varphi)\). The figure is drawn at a fixed value of \((\theta,\varphi)\).
+        The solid lines are lines
+        \(t=\)const, while the dashed ones are lines
+        \(r=\)const. The black hole interior (resp.
+        exterior) is depicted in green (resp. red). The thick yellow line represents
+        the central singularity, located at \(r=0\), and the black line depicts
+        the event horizon.
+        This figure is produced with the method <code>plot()</code> of SageManifolds charts.
+        The corresponding worksheet is <a href="http://nbviewer.jupyter.org/github/sagemanifolds/SageManifolds/blob/master/Worksheets/v1.0/SM_Schwarzschild.ipynb" target="_blank">here</a>.
+        </p>
+    </li>
+    <li><strong>Carter-Penrose diagram of Schwarzschild spacetime:</strong><br>
+        <div style="display: inline-block; margin-top:20px;">
+        <img width=80% src="images/Carter-Penrose_diag.png">
+        </div>
+        <p>
+        This is a global view of Schwarzschild spacetime obtained by plotting
+        two charts of standard Schwarzschild-Droste coordinates \((t,r,\theta,\varphi)\)
+        in terms of compactified coordinates \((\hat{T},\hat{X},\theta,\varphi)\): one
+        chart for the region \(\mathscr{M}_{\rm I}\cup\mathscr{M}_{\rm II}\) and the other one for the region \(\mathscr{M}_{\rm III}\cup\mathscr{M}_{\rm IV}\).
+        \(\mathscr{H}\) is the black hole event horizon.
+        The figure is drawn at a fixed value of \((\theta,\varphi)\).
+        The solid lines are lines \(t=\)const, while the dashed ones are lines
+        \(r=\)const.
+        This figure is produced with the method <code>plot()</code> of SageManifolds charts.
+        The corresponding worksheet is <a href="http://nbviewer.jupyter.org/github/sagemanifolds/SageManifolds/blob/master/Worksheets/v1.0/SM_Carter-Penrose_diag.ipynb" target="_blank">here</a>.
+        </p>
+    </li>
+    <li><strong>Simon-Mars scalar in Tomimatsu-Sato spacetime:</strong><br>
+        <div style="display: inline-block; margin-top:20px;">
+        <img width=80% src="images/Tomimatsu-Sato_Simon-Mars_scal.png">
+        </div>
+        <p>
+        This figure shows the isocontours of the logarithm of the real part of the Simon-Mars scalar
+        defined in <a href="http://arxiv.org/abs/1412.6542">arXiv:1412.6542</a>
+        in a meridional plane of the \(\delta=2\) Tomimatsu-Sato spacetime.
+        The plane is spanned by the Weyl-Lewis-Papapetrou coordinates
+        \((\rho,z)\). The Simon-Mars scalar diverges at the ring singularity of
+        Tomimatsu-Sato spacetime located at \((\rho,z) \simeq (1.140, 0)\).
+        The black line marks the boundary of the ergoregion. This is Fig. 12 of the
+        article <a href="http://arxiv.org/abs/1412.6542">arXiv:1412.6542</a>.
+        The corresponding worksheet is
+        <a href="http://nbviewer.jupyter.org/github/sagemanifolds/SageManifolds/blob/master/Worksheets/v1.0/SM_Simon-Mars_3p1_TS2.ipynb" target="_blank">here</a>.
+        </p>
+    </li>
+    <li><strong>Horizon formation in Vaidya spacetime:</strong><br>
+        <div style="display: inline-block; margin-top:20px;">
+        <img width=80% src="images/vaidya_horizons.png">
+        </div>
+        <p>
+        This represents the gravitational collapse of a radiative shell (in yellow) in
+        Vaidya's spherically symmetric solution of the Einstein equation. The green curves are radial null geodesics, the red curve marks the trapping horizon and the black one the event horizon.
+        The corresponding worksheet is <a href="http://nbviewer.jupyter.org/github/egourgoulhon/BHLectures/blob/master/sage/Vaidya.ipynb" target="_blank">here</a>.
+        </p>
+    </li>
+</ul>
+
+        </main>
+
+        <aside>
+            <nav>
+                <h2>Categories</h2>
+                <ul class="style1">
+                    <li><p><a href="index.html">Home</a></p></li>
+                    <li><p><a href="download.html">Download</a></p></li>
+                    <li><p><a href="examples.html">Examples</a></p></li>
+                    <li><p><a href="documentation.html">Documentation</a></p></li>
+                    <li class="active"><p><a href="gallery.html">Gallery</a></p></li>
+                    <li><p><a href="contrib.html">Contribute</a></p></li>
+                    <li><p><a href="contact.html">Contact/Help</a></p></li>
+                </ul>
+            </nav>
+        </aside>
+
+    </div>
+
+<footer>
+    <p>Based on a template from <a href="http://www.freecsstemplates.org" rel="nofollow">FreeCSSTemplates.org</a></p>
+</footer>
+
+</div>
+</body>
+</html>

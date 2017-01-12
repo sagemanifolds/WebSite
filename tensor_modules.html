@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>SageManifolds: tensors on free modules</title>
+<meta name="keywords" content="">
+<meta name="description" content="SageManifolds: differential geometry and tensor calculus with SageMath">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic|Roboto">
+<link rel="stylesheet" type="text/css" href="style.css" media="all">
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+<body>
+
+<!-- header -->
+<div id="header-wrapper">
+    <div id="header" class="container">
+
+        <div id="logo">
+            <h1><a href="index.html">SageManifolds</a></h1>
+            <h3><a href="index.html">Differential geometry and tensor calculus with SageMath</a></h3>
+        </div>
+
+        <nav class="topmenu">
+            <ul>
+                <li class="first"><a href="index.html" accesskey="1" title="">Home</a></li>
+                <li><a href="download.html" accesskey="2" title="">Download</a></li>
+                <li><a href="examples.html" accesskey="3" title="">Examples</a></li>
+                <li class="active"><a href="documentation.html" accesskey="4" title="">Documentation</a></li>
+                <li><a href="gallery.html" accesskey="5" title="">Gallery</a></li>
+                <li><a href="contrib.html" accesskey="6" title="">Contribute</a></li>
+                <li><a href="contact.html" accesskey="7" title="">Contact/Help</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- wrapper -->
+<div id="wrapper">
+    <div id="page" class="container">
+
+        <main>
+
+<h2>Tensors on free modules of finite rank</h2>
+
+<p>This is a pure algebraic subset of <a href="index.html">SageManifolds</a>, devoted
+to tensors on free modules of finite rank over a commutative ring. This subset is self-consistent, i.e. it does not depend upon other SageManifolds parts. It has been integrated
+in SageManifolds from version 0.5. Since April 2015 (SageMath 6.6 release), it has been
+integrated in <a href="http://www.sagemath.org/">SageMath</a>, i.e. it comes along with any SageMath installation.
+All the relevant Python files are in the subdirectory <code>src/sage/tensor/modules</code> of the SageMath root directory, after having installed SageManifolds.
+</p>
+
+<p>In the context of differentiable manifolds, <strong>tensors on a free module \(M\) over a commutative ring \(R\)</strong> appear at two places (see also Sec. 4.4 of <a href="http://arxiv.org/abs/1412.4765">arXiv:1412.4765</a>):</p>
+
+<ul class="default">
+    <li>tensors on tangent spaces:
+        <ul class="default">
+            <li>ring \(R\) : real field \(\mathbb{R}\) </li>
+            <li>free module \(M\) : tangent vector space at a given point on the manifold</li>
+        </ul>
+    </li>
+    <li>tensor fields on a manifold:
+        <ul class="default">
+            <li>ring \(R\) : algebra \( C^\infty(U) \) of smooth functions \( U\rightarrow \mathbb{R} \), where \(U\) is a parallelizable open set of the manifold</li>
+            <li>free module \(M\) : \(\mathcal{X}(U)\), the set of smooth vector fields on \(U\) (since \(U\) is parallelizable, this is a free module; its rank is the manifold's dimension)</li>
+        </ul>
+    </li>
+</ul>
+<p>
+It turns out that, before this project, only free modules
+<i>with a distinguished basis</i> were
+implemented in SageMath. This means that, given a free module \(M\) of rank \(n\),
+all calculations were referring to a single basis of \(M\). This amounts to identifying
+\(M\) with \(R^n\), where \(R\) is the ring over which \(M\) is defined.
+This is unfortunately not sufficient for dealing with differentiable manifolds
+in a coordinate-independent way.
+For instance, considering the tangent space \(T_p\mathcal{M}\)
+to a manifold \(\mathcal{M}\) at a point \(p\),
+there is no canonical
+isomorphism between \(T_p\mathcal{M}\)  and \(\mathbb{R}^n\) when no coordinate
+system is privileged in the neighborhood of \(p\).
+Hence it has been necessary to implement
+generic free modules of finite rank, with an arbitrary number of bases,
+none of them being distinguished. See
+<a href="http://sagemanifolds.obspm.fr/doc/reference/tensor_free_modules/sage/tensor/modules/finite_rank_free_module.html" >here</a>
+ for details (in particular for a
+comparison with previous implementations of free modules in SageMath).
+</p>
+
+<h3>Documentation</h3>
+
+
+    <ul class="default">
+         <li><a href="http://nbviewer.jupyter.org/github/sagemanifolds/SageManifolds/blob/master/Worksheets/v1.0/SM_tensors_modules.ipynb" target="_blank">Tutorial</a>
+            [<a href="examples/pdf/SM_tensors_modules.pdf">pdf</a>]
+            [<a href="https://raw.githubusercontent.com/sagemanifolds/SageManifolds/master/Worksheets/v1.0/SM_tensors_modules.ipynb">ipynb</a>]</li>
+        <li><a href="doc/reference/tensor_free_modules/index.html">Reference manual</a>
+            [<a href="doc/tensors_free_modules_ref.pdf">pdf</a>]</li>
+    </ul>
+
+
+<h3>Integration in Sage:</h3>
+
+    <ul class="default">
+        <li><a href="http://git.sagemath.org/sage.git/log/?q=4b9af69bdc702be6ffd31a991bf67a16fa26918f..99f9ac53bd3e42dd00f5d05b7b126a632161ca55&h=99f9ac53bd3e42dd00f5d05b7b126a632161ca55&qt=range">Commit page</a> at git.sagemath.org</li>
+        <li><a href="http://trac.sagemath.org/ticket/15916" >Submitted ticket (#15916)</a> at trac.sagemath.org</li>
+    </ul>
+
+        </main>
+
+        <aside>
+            <nav>
+                <h2>Categories</h2>
+                <ul class="style1">
+                    <li><p><a href="index.html">Home</a></p></li>
+                    <li><p><a href="download.html">Download</a></p></li>
+                    <li><p><a href="examples.html">Examples</a></p></li>
+                    <li class="active"><p><a href="documentation.html">Documentation</a></p></li>
+                    <li><p><a href="gallery.html">Gallery</a></p></li>
+                    <li><p><a href="contrib.html">Contribute</a></p></li>
+                    <li><p><a href="contact.html">Contact/Help</a></p></li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+
+<footer>
+    <p>Based on a template from <a href="http://www.freecsstemplates.org" rel="nofollow">FreeCSSTemplates.org</a></p>
+</footer>
+
+</div>
+</body>
+</html>

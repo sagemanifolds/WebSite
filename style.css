@@ -1,0 +1,328 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background: white;
+    font-family: "Roboto", sans-serif;
+    /* font-family: "Open Sans", sans-serif; */
+    font-variant: normal;
+    font-size: 14px;
+    color: #4F4F4F;
+    height:100%;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #322F2A;
+}
+
+h1 {font:28px 'Open Sans Condensed', sans-serif;}
+h2 {font:20px 'Open Sans Condensed', sans-serif;}
+h3 {font:14px 'Open Sans Condensed', sans-serif;}
+h4 {font:12px 'Open Sans Condensed', sans-serif;}
+
+p, ol, ul {
+    margin-top: 0px;
+}
+
+ol, ul {
+    margin: 0px;
+    padding: 0px;
+    list-style:  none
+}
+
+p {
+    line-height: 150%;
+}
+
+a {
+    color: #990000;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a img {
+    border: none;
+}
+
+img.border {}
+
+img.alignleft {
+    float: left;
+}
+
+img.alignright {
+    float: right;
+}
+
+img.aligncenter {
+    margin: 0px auto;
+}
+
+hr {
+    display: none;
+}
+
+ul.default {
+    margin-left: 30px;
+    margin-top: 10px;
+    list-style: disc;
+}
+
+ul.default li {
+    padding: 3px;
+}
+
+ul.style1 {}
+
+ul.style1 li {
+    padding: 0em;
+}
+
+ul.style1 a {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: 'Open Sans Condensed', sans-serif;
+    letter-spacing: 1px;
+    font-size: 1.15em;
+    color: #990000;
+}
+
+ul.style1 a:hover {
+    text-decoration: underline;
+}
+
+ul.style1 .posted {
+    font-size: 0.90em;
+    color: #b6b6b6;
+}
+
+ul.style1 .first {
+    padding-top: 0em;
+    border-top: none;
+}
+
+/* WRAPPER */
+
+#wrapper {
+    min-height: 100%;
+    position:relative;
+    background: #FFFFFF;
+}
+
+.container {
+    width: 1000px;
+    margin: 0px auto;
+}
+
+.clearfix {
+    clear: both;
+}
+
+/* HEADER */
+
+#header-wrapper {
+    overflow: hidden;
+    height: 150px;
+    background: #585350;
+    border-bottom: 1px solid #3B3B3A;
+}
+
+#header {
+    overflow: hidden;
+}
+
+/* LOGO */
+
+#logo {
+    position: relative;
+    float: left;
+    width: 400px;
+    height: 100px;
+}
+
+#logo h1, #logo p {
+    margin-top: 30px;
+    line-height: normal;
+}
+
+#logo h3 { line-height: 12pt; }
+#logo h1 a, #logo h3 a {
+    display: block;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.5em;
+}
+
+/* TOP MENU */
+
+.topmenu {
+    padding: 40px 0px 0px 0px;
+    height: 99px;
+}
+
+.topmenu ul {
+    float: right;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    line-height: normal;
+}
+
+.topmenu li {
+    float: left;
+    padding: 2em 0em 2em 1em;
+}
+
+.topmenu a {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: 'Open Sans Condensed', sans-serif;
+    letter-spacing: 1px;
+    font-size: 1.15em;
+    color: #aaa;
+}
+
+.topmenu a:hover {
+    text-decoration: none;
+    color: #ccc;
+}
+
+.topmenu .active a {
+    color: #FFFFFF;
+}
+
+.topmenu .first {
+    padding-left: 0px;
+    border-left: none;
+    box-shadow: none;
+}
+
+/* PAGE */
+
+#page {
+    overflow: hidden;
+    padding: 30px 0px;
+}
+
+
+/* MAIN */
+
+main {
+    float: right;
+    width: 81%;
+    padding-left:4%;
+    text-align: justify;
+}
+
+main h1 {
+    color: #990000;
+    padding: 10px 0px 10px 0px;
+    font-weight: 400;
+    font-size: 2.5em;
+}
+
+main h2 {
+    color: #990000;
+    padding: 10px 0px 10px 0px;
+    font-weight: 400;
+    font-size: 2em;
+}
+
+main h2 strong {
+    letter-spacing: 0px;
+}
+
+
+main h3 {
+    color: #990000;
+    padding: 10px 0px 5px 0px;
+    font-size: 1.5em;
+}
+
+main i {
+    color: #990000;
+}
+
+main pre, pre i {
+    font-family: monospace;
+    color: #000;
+}
+
+main code {
+    color: #000;
+}
+
+
+main img {
+    float: right;
+    margin-left: 15px;
+    margin-top: 0px;
+    margin-bottom:10px;
+    border: 0;
+}
+
+
+/* NAVIGATION*/
+
+nav h2 {
+    padding: 0px 0px 30px 0px;
+    letter-spacing: -1px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+    color: #3B3B3A
+}
+
+/* SIDEBAR */
+
+aside {
+    float: left;
+    width: 15%;
+}
+
+aside h2 {
+    padding: 10px 0px 10px 0px;
+}
+
+aside .active a {
+    color: #990000;
+}
+
+aside .active a:before {
+    content: '>\a0';
+}
+
+
+/* Footer */
+
+footer {
+    position:absolute;
+    bottom:0;
+    width: 99%;
+    overflow: hidden;
+    height: 30px;
+    font-size: 12px;
+}
+
+footer p {
+    margin:5px;
+    text-align: right;
+    color: #999;
+}
+
+footer a {
+    color: #BFBFBF;
+}

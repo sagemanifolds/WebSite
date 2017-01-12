@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>SageManifolds: changelog</title>
+<meta name="keywords" content="">
+<meta name="description" content="SageManifolds: differential geometry and tensor calculus with Sage">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic|Roboto">
+<link rel="stylesheet" type="text/css" href="style.css" media="all">
+</head>
+
+<body>
+
+<!-- header -->
+<div id="header-wrapper">
+    <div id="header" class="container">
+
+        <div id="logo">
+            <h1><a href="index.html">SageManifolds</a></h1>
+            <h3><a href="index.html">Differential geometry and tensor calculus with Sage</a></h3>
+        </div>
+
+        <nav class="topmenu">
+            <ul>
+                <li class="first">
+                    <a href="index.html" accesskey="1" title="">Home</a></li>
+                <li><a href="download.html" accesskey="2" title="">Download</a></li>
+                <li><a href="examples.html" accesskey="3" title="">Examples</a></li>
+                <li class="active"><a href="documentation.html" accesskey="4" title="">Documentation</a></li>
+                <li><a href="gallery.html" accesskey="5" title="">Gallery</a></li>
+                <li><a href="contrib.html" accesskey="6" title="">Contribute</a></li>
+                <li><a href="contact.html" accesskey="7" title="">Contact/Help</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- wrapper -->
+<div id="wrapper">
+    <div id="page" class="container">
+
+        <main>
+
+<h2>Changelog</h2>
+
+<h3>Version <strong>1.0</strong> (11 January 2017)</h3>
+
+<p>Besides the full integration in SageMath 7.5, there
+are only minor changes with respect to v0.9.1:</p>
+
+<p>
+Syntactic changes:
+<ul class="default">
+<li>Method <code>plot</code> of classes <code>RealChart</code> and <code>VectorField</code>: keyword argument
+<code>nb_values</code> renamed <code>number_values</code>
+</li>
+<li>Method <code>structure_coef</code> of class <code>VectorFrame</code> renamed <code>structure_coeff</code>
+</li>
+<li>Class <code>OpenInterval</code>: argument <code>subinterval_of</code> renamed
+ <code>ambient</code> in the constructor
+</li>
+<li>Class <code>RealLine</code>: LateX name changed from  <code>\RR</code> to
+ <code>\Bold{R}</code>
+</li>
+</ul>
+</p>
+
+<p>
+Internal changes:
+<ul class="default">
+<li>Systematic use of
+<a href="https://wiki.sagemath.org/Python3-compatible%20code" target="_blank">Python3-compatible</a> syntax (to prepare the
+<a href="https://trac.sagemath.org/ticket/16052" target="_blank">migration of
+SageMath to Python3</a>); in particular:
+<ul class="default">
+<li>All occurences of <code>iteritems()</code> changed to <code>items()</code></li>
+<li>All occurences of <code>itervalues()</code> changed to <code>values()</code></li>
+<li>Classes <code>ScalarField</code> and <code>TensorField</code>: method <code>__nonzero__</code> renamed <code>__bool__</code>
+</li>
+<li>Class <code>TensorField</code>: method <code>__div__</code> renamed <code>__truediv__</code>
+</li>
+</ul>
+</li>
+<li>Classes <code>TensorFieldModule</code>, <code>VectorFieldModule</code> and <code>DiffFormModule</code>: add cached method <code>zero</code>
+</li>
+<li>Classes <code>DiffForm</code> and <code>DiffFormParal</code>: method <code>exterior_derivative</code> is cached
+(via the <a href="http://doc.sagemath.org/html/en/reference/misc/sage/misc/cachefunc.html"  target="_blank">decorator <code>@cached_method</code></a>)
+</li>
+<li>Class <code>VectorFrame</code>: method <code>structure_coeff</code> is cached
+(via the <a href="http://doc.sagemath.org/html/en/reference/misc/sage/misc/cachefunc.html"  target="_blank">decorator <code>@cached_method</code></a>)
+</li>
+</ul>
+</p>
+
+<p>
+Other changes:
+<ul class="default">
+<li>Improvements in the documentation; in particular 3D graphics have been added to the
+reference manual for illustrating the use of some <code>plot</code> methods</li>
+<li>Values set by the user to some keyword arguments of <code>plot</code> methods
+become the new default values until further explicit change (this behavior is
+provided by the
+ <a href="http://doc.sagemath.org/html/en/reference/misc/sage/misc/decorators.html"  target="_blank">decorator <code>@options</code></a>):
+<ul class="default">
+<li><code>TangentVector.plot</code>: argument <code>scale</code>
+</li>
+<li><code>VectorField.plot</code>: arguments <code>max_range</code>, <code>scale</code> and <code>color</code>
+</li>
+<li><code>DifferentiableCurve.plot</code>: arguments
+ <code>thickness</code>, <code>plot_points</code>, <code>max_range</code>
+ and <code>aspect_ratio</code>
+</li>
+</ul>
+</li>
+</ul>
+</p>
+
+
+<h3>Version <strong>0.9.1</strong> (19 September 2016)</h3>
+
+<p>This release propagates further code changes related to the
+integration of SageManifolds into SageMath (cf. the metaticket
+ <a href="http://trac.sagemath.org/ticket/18528">#18528</a>); it also
+adds a few new functionalities.</p>
+
+<p>New functionalities:
+<ul class="default">
+<li>Computation of the Schouten tensor, the Cotton conformal tensor and the
+Cotton-York conformal tensor associated to a given pseudo-Riemannian metric
+</li>
+<li>Add structure of Lie algebroid to modules of vector fields (classes <code>VectorFieldModule</code> and <code>VectorFieldFreeModule</code>):
+new method <code>VectorField.bracket</code></li>
+<li>Parallelization of vector field plots</li>
+<li>Parallelization of arithmetics of fully antisymmetric tensor components</li>
+<li>Improved rendering of variables in partial derivatives, using LaTeX display
+of symbols (class <code>ExpressionNice</code>)</li>
+<li>Add comparison operator for transition maps (class <code>CoordChange</code>)</li>
+<li>Add list functionalities for bases (methods <code>__len__</code> and <code>__iter__</code> in classes <code>FreeModuleBasis</code> and <code>FreeModuleCoBasis</code>)</li>
+</ul>
+</p>
+
+<p>
+Syntactic changes:
+<ul class="default">
+<li>Method <code>CoordChange.set_inverse</code>: replace the
+keyword <code>check</code> by <code>verbose</code>,
+the default being now <code>verbose=False</code></li>
+<li>Introduction of <code>Manifold.options</code> to control the display of mathematical expressions instead of the global functions <code>nice_derivatives</code> and <code>omit_function_args</code>, which have been suppressed</li>
+<li>Function <code>set_axes_labels</code> (to set labels on 3D plots) no longer imported at the startup time; if required, one has to type <code>from sage.manifolds.utilities import set_axes_labels</code></li>
+<li>Function <code>xder</code> (exterior derivative) no longer imported at the startup time; if required, one has to type <code>from sage.manifolds.utilities import xder</code></li>
+<li>Class <code>DiffForm</code>: method <code>exterior_der</code> renamed <code>exterior_derivative</code></li>
+<li>Classes <code>DiffScalarField</code>, <code>TensorField</code> and <code>TensorFieldParal</code>: method <code>lie_der</code> renamed <code>lie_derivative</code>, with <code>lie_der</code> kept as an alias of the latter</li>
+</ul>
+</p>
+
+<p>
+More internal changes:
+<ul class="default">
+<li>Manifold structure now described via specific singleton classes: <code>TopologicalStructure</code>, <code>RealTopologicalStructure</code>,
+<code>DifferentialStructure</code> and <code>RealDifferentialStructure</code></li>
+<li>Class <code>TopologicalManifoldSubset</code> renamed <code>ManifoldSubset</code></li>
+<li>Class <code>TopologicalManifoldPoint</code> renamed <code>ManifoldPoint</code></li>
+<li>Manifold subsets are no longer facade parents</li>
+<li>Class <code>ManifoldSubset</code>: new methods <code>lift</code> and <code>retract</code></li>
+<li>Introduction of the commutative algebra of all symbolic coordinate functions on a given chart: new class <code>CoordFunctionSymbRing</code> and class <code>CoordFunction</code> now inheritates from <code>AlgebraElement</code></li>
+<li>Class <code>FiniteRankFreeModule</code>: category changed from
+<code>Modules(ring)</code> to <code>Modules(ring).FiniteDimensional()</code></li>
+<li>Some changes to prepare the migration to Python 3 (e.g. <code>print</code> replaced by <code>print()</code>)</li>
+</ul>
+</p>
+
+<h3>Version <strong>0.9</strong> (10 December 2015)</h3>
+
+<p>
+This is a major release, resulting from an important refactoring of the code,
+in view of a full integration of SageManifolds into SageMath (cf. the metaticket
+ <a href="http://trac.sagemath.org/ticket/18528">#18528</a> on the SageMath
+ developer trac). The major changes are
+ <ul class="default">
+<li>Topological properties have been separated from differential ones, by
+implementing topological manifolds (new class
+<code>TopologicalManifold</code>) and making the
+class for differentiable manifolds (<code>DifferentiableManifold</code>) inherit
+from <code>TopologicalManifold</code>.</li>
+<li>The base field over which manifolds are defined is no longer assumed to be
+the real field: it can be any topological field (non-discrete to define
+differentiability for diff. manifolds). This allows to define easily
+complex manifolds, by setting the field to <strong>C</strong>.</li>
+<li>The class <code>ManifoldOpenSubset</code> has been suppressed: open subsets of manifolds
+are now instances of <code>TopologicalManifold</code> or <code>DifferentiableManifold</code> (since an open subset of a
+top/diff manifold is a top/diff manifold by itself)</li>
+<li>Functions defined on a coordinate patch are no longer necessarily symbolic
+functions of the coordinates: they now pertain to the generic class
+<code>CoordFunction</code>, symbolic functions being described by a subclass of it
+(<code>CoordFunctionSymb</code>). This opens the way for "numerical" manifolds, like
+spacetimes generated by numerical relativity codes.</li>
+<li>Better parallelization, governed by the new singleton class <code>Parallelism</code>
+and the global function <code>use_multiproc</code>.</li>
+</ul>
+</p>
+
+<p>
+Some syntactic changes:
+<ul class="default">
+    <li>differentiable manifolds: renaming of some methods:
+    <ul class="default">
+        <li><code>aff_connection()</code> ---> <code>affine_connection()</code></li>
+        <li><code>diff_mapping()</code> ---> <code>diff_map()</code></li>
+        <li><code>frame_change()</code> ---> <code>change_of_frame()</code></li>
+        <li><code>frame_changes()</code> ---> <code>changes_of_frame()</code></li>
+        <li><code>lorentz_metric()</code> ---> <code>lorentzian_metric()</code></li>
+        <li><code>riemann_metric()</code> ---> <code>riemannian_metric()</code></li>
+        <li><code>set_frame_change()</code> ---> <code>set_change_of_frame()</code></li>
+    </ul>
+    <li>charts: method <code>coord_change()</code> removed, only
+    <code>transition_map()</code> remains</li>
+    <li>manifolds maps: method <code>multi_function_chart()</code> renamed to
+    <code>coord_functions()</code></li>
+    </li>
+    <li>curves in manifolds: method <code>coord_functions()</code>
+    renamed to <code>coord_expr()</code></li>
+    <li>differential forms: method <code>hodge_star()</code> renamed to <code>hodge_dual()</code></li>
+    <li>in all methods <code>plot()</code>: optional argument
+    <code>max_value</code> renamed to <code>max_range</code></li>
+</ul>
+</p>
+
+<h3>Version <strong>0.8</strong> (16 May 2015)</h3>
+
+<p>
+Changes for the end user:
+<ul class="default">
+    <li>Plot of vector fields: new method <code>VectorField.plot()</code></li>
+    <li>Possibility of parallelizing heavy computations: parallelization is
+    implemented for basic tensor calculus (arithmetics, contractions) and
+    for calculus regarding affine connections (connection coefficients, action
+    on a tensor field, Riemann curvature tensor) </li>
+    <li>Nice display of partial derivatives</li>
+    <li>Standard math functions exp, cos, sin, etc. on scalar fields</li>
+    <li>Display of tensor components as a list, one per line: new methods <code>TensorField.display_comp()</code> and <code>FreeModuleTensor.display_comp()</code></li>
+    <li>Nice display of connection coefficients: new method <code>AffConnection.display()</code></li>
+    <li>Nice display of Christoffel symbols: new method <code>Metric.christoffel_symbols_display()</code></li>
+    <li>Nice display of chart transition maps: new method <code>CoordChange.display()</code></li>
+</ul>
+</p>
+
+<p>
+Internal changes:
+<ul class="default">
+    <li>Better handling of uniqueness of tangent spaces</li>
+    <li>Suppression of the class <code>ZeroScalarField</code>, for a better
+    integration in Sage's <code>Parent/Element</code> framework</li>
+</ul>
+</p>
+
+
+
+
+<h3>Version <strong>0.7</strong> (12 March 2015)</h3>
+
+<p>
+This is a major release, with numerous internal changes, leading to a better
+integration in Sage <code>Parent</code>/<code>Element</code> framework.
+<ul class="default">
+    <li>
+New Python classes have been introduced:
+<code>FreeModuleHomset, FiniteRankFreeModuleMorphism, FreeModuleLinearGroup,
+ExtPowerFreeModule, ManifoldHomset, ManifoldCurveSet, ManifoldCurve,
+OpenInterval, AutomorphismFieldParalGroup, AutomorphismFieldGroup,
+DiffFormModule, DiffFormFreeModule</code>.</li>
+<li>Other classes have been removed:
+<code>FreeModuleEndomorphism, FreeModuleIdentityMap, FreeModuleLinForm,
+IdentityMap, EndomorphismField, EndomorphismFieldParal, TangentIdentityField,
+TangentIdentityFieldParal, OneForm</code>.</li>
+</ul>
+</p>
+<p>
+For the end user, new features are
+<ul class="default">
+    <li>the introduction of <a href="doc/reference/manifolds/sage/geometry/manifolds/curve.html">curves in manifolds</a>
+    (with some plotting capabilities)</li>
+    <li>improvements in
+    <a href="doc/reference/manifolds/sage/geometry/manifolds/diffmapping.html">differential mappings between manifolds</a>, including mapping
+     composition and mapping differential</li>
+    <li>the introduction of <a href="doc/reference/tensor_free_modules/sage/tensor/modules/free_module_morphism.html">
+        homomorphisms between free modules</a></li>
+</ul>
+</p>
+<p>
+Some semantic changes have also been performed:
+<ul class="default">
+    <li>Methods <code>view()</code> have been renamed <code>display()</code>
+    (with <code>disp()</code> as an abbreviation); <code>view()</code>
+    is still usable but generates a deprecation warning.</li>
+    <li>Method <code>open_domain()</code> has been renamed <code>open_subset()</code>.</li>
+    <li>Method <code>view_bases()</code> has been renamed <code>print_bases()</code>.</li>
+    <li>Class <code>Domain</code> has been renamed <code>ManifoldSubset</code>.</li>
+    <li>Class <code>OpenDomain</code> has been renamed <code>ManifoldOpenSubset</code>.</li>
+    <li>Class <code>Point</code> has been renamed <code>ManifoldPoint</code>.</li>
+</ul>
+</p>
+
+
+<h3>Version <strong>0.6</strong> (28 September 2014)</h3>
+
+<ul class="default">
+    <li>Graphical output for charts (method <code>Chart.plot()</code>) and
+    points (method <code>Point.plot()</code>); here are <a href="gallery.html">some examples</a>.</li>
+    <li>Introduction of index notation to denote tensor contractions and
+    tensor symmetrizations (new class <code>TensorWithIndices</code>); see these links:
+    <a href="http://sagemanifolds.obspm.fr/doc/reference/tensor_free_modules/sage/tensor/modules/tensor_with_indices.html">[1]</a>, <a href="http://sagemanifolds.obspm.fr/doc/reference/tensor_free_modules/sage/tensor/modules/free_module_tensor.html#sage.tensor.modules.free_module_tensor.FreeModuleTensor.contract">[2]</a>
+    and <a href="http://sagemanifolds.obspm.fr/doc/reference/manifolds/sage/geometry/manifolds/tensorfield.html#sage.geometry.manifolds.tensorfield.TensorField.contract">[3]</a>.
+</li>
+    <li>The argument of methods <code>symmetrize()</code> and <code>antisymmetrize()</code> in tensor classes is now directly a sequence of index positions (and no longer a single list/tuple encapsulating such a sequence).</li>
+    <li>Method <code>self_contract()</code> of tensor classes renamed <code>trace()</code>.</li>
+    <li>The code for tensor contractions has been optimized; moreover multiple tensor
+    contractions are now allowed.</li>
+    <li>The documentation (reference manuals <a href="doc/reference/manifolds/index.html">[4]</a>
+    and <a href="doc/reference/tensor_free_modules/index.html">[5]</a>) has been improved.</li>
+</ul>
+
+<h3>Version <strong>0.5</strong> (12 July 2014)</h3>
+
+<p>
+This is a major release, involving the introduction of algebraic structures
+to describe tensor fields, namely modules over the algebra of scalar fields,
+among which <a href="tensor_modules.html">free modules of finite rank</a>.
+This is achieved via Sage <code>Parent</code>/<code>Element</code> scheme and
+coercion model. A view of the corresponding Python class architecture is
+<a href="class_diagrams.html">here</a>.
+</p>
+<p>
+For the end user, new features are
+<ul class="default">
+    <li>A rigorous treatment of non-parallelizable manifold</li>
+    <li>Tangent spaces at a given manifold point and tensors on them,
+     possibly as values of tensor fields at the point</li>
+    <li>Tensor fields along an open subset of a manifold taking their values
+    on another manifold (via some differential mapping between the two
+    manifolds)</li>
+    <li>Only the Python classes <code>Manifold</code>, <code>RealLine</code> and
+    <code>FiniteRankFreeModule</code> are imported in the global name space
+    of a Sage session. All constructions of objects not belonging to these
+    classes are to be performed by method calls on other objects.
+    </li>
+</ul>
+</p>
+
+<h3>Version <strong>0.4</strong> (10 February 2014)</h3>
+
+<ul class="default">
+    <li>class <code>Domain</code>:
+        <ul class="default">
+            <li><code>Parent</code>/<code>Element</code> scheme used for
+            <code>Domain</code>/<code>Point</code>, with <code>Domain</code> in the category of <code>Sets</code></li>
+            <li>members <code>atlas</code>, <code>frames</code> and <code>coframes</code> are now lists (and no longer dictionaries)</li>
+        </ul>
+    </li>
+    <li>class <code>Chart</code>:
+        <ul class="default"><li>member <code>name</code> suppressed</li>
+            <li>new methods: <code>__hash__</code> and <code>__eq__</code></li>
+        </ul>
+    </li>
+    <li>class <code>ScalarField</code>:
+        <ul class="default"><li>member <code>express</code>: now a dictionary
+        with keys being the charts (and no longer their names)
+        </li></ul>
+    </li>
+
+    <li>class <code>DiffMapping</code>:
+
+    <ul class="default"><li>member <code>coord_expression</code>:
+    now a dictionary with keys being the charts
+    (and no longer their names)</li>
+    </ul>
+    </li>
+
+    <li>class <code>TensorField</code>:
+    <ul class="default"><li>member <code>components</code>:
+    now a dictionary with keys being the vector frames
+    (and no longer their names)</li></ul>
+    </li>
+
+     <li>class <code>VectorFrame</code>:
+    <ul class="default"><li>method <code>__call__</code> changed
+    to <code>__getitem__</code></li>
+    <li>new methods: <code>__hash__</code> and <code>__eq__</code>
+    </li></ul>
+    </li>
+
+    <li>class <code>CoFrame</code>:
+    <ul class="default"><li>method <code>__call__</code> changed
+    to <code>__getitem__</code>
+    </li></ul>
+    </li>
+
+    <li>class <code>CoordBasis</code> renamed to <code>CoordFrame</code>
+    </li>
+
+    <li>class <code>CompWithSym</code>:
+    <ul class="default"><li>corrected treatment of pre-existing symmetries in methods <code>symmetrize</code> and <code>antisymmetrize</code>
+    </li></ul>
+
+
+    </li>
+
+</ul>
+
+<h3>Version <strong>0.3</strong> (24 November 2013)</h3>
+
+
+<ul class="default">
+    <li>Changes towards a better integration in Sage:
+        <ul class="default">
+            <li><code>Parent</code>/<code>Element</code> scheme used for
+            <code>Manifold</code>/<code>Point</code></li>
+            <li>construction of objects via factory methods (no need
+            to have the various class constructors in the global namespace)</li>
+            <li>use of the preparser tool &lt;x,y,...&gt; to explicitely set the
+            coordinates in the global namespace</li>
+        </ul>
+    </li>
+    <li>New classes <code>Domain</code> and <code>OpenDomain</code> to deal
+    with manifold subdomains: mappings and tensor fields can be now defined
+    on subdomains only.
+    </li>
+    <li>class <code>Manifold</code>:
+        <ul class="default">
+            <li>inherits from <code>OpenDomain</code> and Sage's <code>Parent</code></li>
+        </ul>
+    </li>
+    <li>class <code>Point</code>:
+        <ul class="default">
+            <li>inherits from Sage's <code>Element</code></li>
+        </ul>
+    </li>
+    <li>class <code>Chart</code>:
+        <ul class="default">
+            <li>the coordinates are no longer set by default to global variables: the
+    preparser tool &lt;,&gt; must be used for this</li>
+            <li>added coordinate restrictions, subcharts and supercharts to deal with subdomains</li>
+            <li>new methods <code>subchart()</code>, <code>transition_map()</code>, <code>valid_coordinates()</code>, <code>__getitem__()</code> </li>
+            <li>method <code>__call__()</code> applies now to a point and returns the point's coordinates</li>
+        </ul>
+    </li>
+    <li>class <code>DiffMapping</code>:
+        <ul class="default">
+            <li>mappings between manifolds now defined on subdomains</li>
+            <li>new method <code>add_expr()</code> in addition to <code>set_expr()</code></li>
+        </ul>
+    </li>
+    <li>class <code>Submanifold</code>:
+        <ul class="default">
+            <li>complete reorganization (in particular subclass <code>MCurve</code> has been suppressed)</li>
+            <li>method <code>pushforward()</code> added</li>
+        </ul>
+    </li>
+    <li>class <code>VectorFrame</code>:
+        <ul class="default">
+            <li>added subframes and superframes to deal with subdomains</li>
+        </ul>
+    </li>
+    <li>class <code>Components</code>:
+        <ul class="default">
+            <li>construction is now on the vector frame + number of indices</li>
+        </ul>
+    </li>
+    <li>class <code>ScalarField</code>:
+        <ul class="default">
+            <li>new methods <code>common_charts()</code> and <code>add_expr()</code></li>
+            <li>method <code>gradient()</code> renamed to <code>differential()</code></li>
+            <li>multi-domain handling in the arithmetic</li>
+        </ul>
+    </li>
+    <li>class <code>TensorField</code>:
+        <ul class="default">
+            <li>tensor fields are now defined on subdomains (instead of the whole manifold)</li>
+            <li>new method <code>add_comp()</code> in addition to <code>set_comp()</code></li>
+            <li>method <code>show()</code> renamed to <code>view()</code></li>
+        </ul>
+    </li>
+    <li>New example worksheets have been added (sphere S<sup>2</sup>, de Sitter and anti-de Sitter spaces)
+    and other worksheets have been updated (see the <a href="examples.html">example worksheets</a>)
+    </li>
+    <li>Development repository moved from svn to <a href="https://gitroc.obspm.fr/gitweb/SageManifolds.git">git</a>
+    </li>
+</ul>
+
+
+<h3>Version <strong>0.2</strong> (12 September 2013)</h3>
+
+<p><i>svn revision 395</i></p>
+
+<ul class="default">
+    <li>class <code>Chart</code>:
+        <ul class="default">
+            <li>the coordinate ranges are now passed in the arguments (as intervals) and
+   are used to set assumptions on the coordinates</li>
+        </ul>
+    </li>
+    <li>class <code>MultiFunctionChart</code>:
+        <ul class="default">
+            <li>the various functions are now stored as instances of class <code>FunctionChart</code>
+   (and no longer as symbolic expressions)</li>
+            <li>new method: <code>expr()</code></li>
+            <li>modified method: <code>jacobian()</code>: returns an array of <code>FunctionChart</code> instances</li>
+            <li>modified method: <code>jacobian_det()</code>: returns a instance of <code>FunctionChart</code></li>
+        </ul>
+    </li>
+    <li>class <code>Point</code>:
+        <ul class="default">
+            <li>added fields <code>name</code> and <code>latex_name</code></li>
+            <li>suppressed method <code>change_coord()</code>: the change-of-coordinate computation is now taken in charge by method <code>coord()</code></li>
+        </ul>
+    </li>
+    <li>class <code>DiffMapping</code>:
+        <ul class="default">
+            <li>new methods: <code>multi_function_chart(), expr(), show(), pullback()</code></li>
+            <li>method <code>new_coord_representation()</code> changed to <code>set_express()</code></li>
+        </ul>
+    </li>
+    <li>class <code>Components</code>:
+        <ul class="default">
+            <li>new method: <code>mtrace()</code></li>
+        </ul>
+    </li>
+    <li>class <code>TensorField</code>:
+        <ul class="default">
+            <li>new method: <code>mtrace()</code></li>
+        </ul>
+    </li>
+    <li>Many doctests changed to comply with Sage 5.11 (new ordering in symbolic expressions
+resulting from some change in pynac, cf. <a href="http://trac.sagemath.org/ticket/9880">ticket 9880</a> on Sage Trac)
+    </li>
+</ul>
+
+<h3>Version <strong>0.1</strong> (7 July 2013)</h3>
+
+<p><i>svn revision 318</i></p>
+
+First public release.
+
+        </main>
+
+        <aside>
+            <nav>
+                <h2>Categories</h2>
+                <ul class="style1">
+                    <li><p><a href="index.html">Home</a></p></li>
+                    <li><p><a href="download.html">Download</a></p></li>
+                    <li><p><a href="examples.html">Examples</a></p></li>
+                    <li class="active"><p><a href="documentation.html">Documentation</a></p></li>
+                    <li><p><a href="gallery.html">Gallery</a></p></li>
+                    <li><p><a href="contrib.html">Contribute</a></p></li>
+                    <li><p><a href="contact.html">Contact/Help</a></p></li>
+                </ul>
+            </nav>
+        </aside>
+
+    </div>
+
+<footer>
+    <p>Based on a template from <a href="http://www.freecsstemplates.org" rel="nofollow">FreeCSSTemplates.org</a></p>
+</footer>
+
+</div>
+</body>
+</html>
