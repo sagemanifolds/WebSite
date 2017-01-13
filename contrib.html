@@ -83,7 +83,7 @@ to edit the Python source code. In the root directory of your SageMath install,
 hereafter called <code>SAGE_ROOT</code>
 (you can locate this directory by typing <code>sage -root</code> in a terminal
 or <code>!sage -root</code> in some cell of a Jupyter notebook),
-the SageManifolds code is located in two subdirectories:
+the SageManifolds code lies in two subdirectories:
 <ul class="default">
     <li><code>SAGE_ROOT/src/sage/tensor/modules/</code> for the pure algebraic
     part (<a href="tensor_modules.html">tensors on free modules</a>)</li>
@@ -95,8 +95,10 @@ Before starting to modify the sources, make sure that you are dealing with the
 latest stable version of SageMath (7.5 at the moment). Even better, you could
 work on the latest <em>development</em> version of SageMath.
 This is even necessary if the planned changes depend upon previous SageManifolds tickets
-that have been merged in the development version of SageMath
+merged in the development version of SageMath
 (the so-called <em>beta</em> versions, for instance 7.6.beta0).
+</p>
+<p>
 To download and install the development version of SageMath, proceed as follows. First of all, make sure the prerequisites needed to build
 SageMath from sources are installed on your computer: check
 <a href="http://doc.sagemath.org/html/en/installation/source.html#prerequisites" target="_blank">this page</a>
@@ -105,12 +107,12 @@ let us say, your home directory (<em>not</em> the root directory of your current
 stable SageMath install):
 <br><br>
 <code>git clone https://github.com/sagemath/sage.git</code> &nbsp; &nbsp; (downloads
-latest stable SageMath sources in a new directory <code>sage</code>) <br>
+stable SageMath sources in a new directory (<code>sage</code>)) <br>
 <code>cd sage</code> &nbsp; &nbsp; (this directory will be your new <code>SAGE_ROOT</code>)<br>
 <code>git checkout -b develop</code> &nbsp; &nbsp; (creates a new git branch, named <code>develop</code>, and makes it the current branch) <br>
 <code>git pull origin develop</code> &nbsp; &nbsp; (downloads the
 latest development sources) <br>
-<code>MAKE="make -j8" make</code> &nbsp; &nbsp; (compile SageMath on 8 threads; adapt to your CPU) <br><br>
+<code>MAKE="make -j8" make</code> &nbsp; &nbsp; (compiles SageMath on 8 threads; adapt to your CPU) <br><br>
 For more details, see the
 <a href="http://doc.sagemath.org/html/en/developer/walk_through.html" target="_blank">git section</a>
 of Sage's Developer Guide.
@@ -161,7 +163,8 @@ doctests:
 Please take time to document your changes as much as possible, especially by providing
 examples of use in the docstrings following these
 <a href="http://doc.sagemath.org/html/en/developer/coding_basics.html#documentation-strings"  target="_blank">rules</a>. If you have added new source files, you may have to edit some <code>rst</code> files
-in <code>SAGE_ROOT/src/doc/en/reference/manifolds/</code>, to take them into account in the <a href="http://doc.sagemath.org/html/en/developer/sage_manuals.html" target="_blank"> documentation</a>. Note that
+in <code>SAGE_ROOT/src/doc/en/reference/manifolds/</code>,
+so that the new files are taken into account in the <a href="http://doc.sagemath.org/html/en/developer/sage_manuals.html" target="_blank"> documentation</a>. Note that
 bibliographic references shall be put in the master file
 <code>SAGE_ROOT/src/doc/en/reference/references/index.rst</code>.
 To generate the documentation from the docstrings in Python source files, run
@@ -233,7 +236,7 @@ To this aim, log in at  <a href="https://trac.sagemath.org/" target="_blank">tra
     <li><strong>Dependencies</strong>: number of a ticket (not integrated in SageMath yet) on which your ticket may depend on.</li>
 </ul>
 You may leave the other fields to blank or to their default values; see
-see the <a href="http://doc.sagemath.org/html/en/developer/trac.html#guidelines-for-opening-tickets"  target="_blank">guidelines for opening tickets</a> for more details.
+the <a href="http://doc.sagemath.org/html/en/developer/trac.html#guidelines-for-opening-tickets"  target="_blank">guidelines for opening tickets</a> for more details.
 </p>
 <p>
 After your ticket is created, add it to the list of manifold tickets
