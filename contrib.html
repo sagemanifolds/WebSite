@@ -6,7 +6,7 @@
 <title>Contributing to SageManifolds</title>
 <meta name="keywords" content="">
 <meta name="description" content="SageManifolds: differential geometry and tensor calculus with SageMath">
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic|Roboto">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic%7CRoboto">
 <link rel="stylesheet" type="text/css" href="style.css" media="all">
 </head>
 
@@ -84,12 +84,13 @@ hereafter called <code>SAGE_ROOT</code>
 (you can locate this directory by typing <code>sage -root</code> in a terminal
 or <code>!sage -root</code> in some cell of a Jupyter notebook),
 the SageManifolds code lies in two subdirectories:
+</p>
 <ul class="default">
     <li><code>SAGE_ROOT/src/sage/tensor/modules/</code> for the pure algebraic
     part (<a href="tensor_modules.html">tensors on free modules</a>)</li>
     <li><code>SAGE_ROOT/src/sage/manifolds/</code> for the topological and differential parts</li>
 </ul>
-</p>
+
 <p>
 Before starting to modify the sources, make sure that you are dealing with the
 latest stable version of SageMath (7.5 at the moment). Even better, you could
@@ -135,27 +136,29 @@ Above all, please write <a href="https://wiki.sagemath.org/Python3-compatible%20
 
 <p>
 To rebuild SageMath after your changes, type (from the <code>SAGE_ROOT</code> directory):
+</p>
 <pre>
 ./sage -b
 </pre>
-</p>
 
 <h3>3. Running doctests</h3>
 
 <p>
 Doctests are <a href="http://doc.sagemath.org/html/en/developer/coding_basics.html#writing-testable-examples" target="_blank">testable examples</a> that are embedded in docstrings of Python classes and functions
 (more generally in comments part of Python source files). They are <a href="http://doc.sagemath.org/html/en/developer/doctesting.html" target="_blank">automatically tested</a> via the command <code>sage -t</code>. So after your changes, you should run
+</p>
 <pre>
 ./sage -t --long src/sage/manifolds/
 </pre>
+<p>
 Note that <code>-t</code> can be replaced by <code>-tp</code> to run doctests in parallel
 (cf. <code>./sage -t --help</code> for the full list of options controlling doctest runs).
 You should also check that all the new functions that you have introduced have
 doctests:
+</p>
 <pre>
 ./sage -coverage src/sage/manifolds/
 </pre>
-</p>
 
 <h3>4. Generating and checking the documentation</h3>
 
@@ -169,14 +172,18 @@ bibliographic references shall be put in the master file
 <code>SAGE_ROOT/src/doc/en/reference/references/index.rst</code>.
 To generate the documentation from the docstrings in Python source files, run
 (from the <code>SAGE_ROOT</code> directory)
+</p>
 <pre>
 ./sage -docbuild reference/manifolds html
 </pre>
+<p>
 (if you get an error, you may need to regenerate the whole reference manual
 by <code>make doc-clean && make doc</code>). The generated documentation lies in
+</p>
 <pre>
 SAGE_ROOT/local/share/doc/sage/html/en/reference/manifolds/index.html
 </pre>
+<p>
 This is actually the manifolds section of the whole SageMath reference manual,
 which is at <code>SAGE_ROOT/local/share/doc/sage/html/en/reference/index.html</code>.
 </p>
@@ -198,6 +205,7 @@ to generate one).
 <p>
 Before pushing your changes to the Trac server, you have to add the latter to your list
 of remote git repositories by
+</p>
 <pre>
 git remote add trac git://trac.sagemath.org/sage.git -t master
 git remote set-url --push trac git@trac.sagemath.org:sage.git
@@ -212,6 +220,7 @@ actual topic of your work:
 <pre>
 git push trac HEAD:public/manifolds/topic
 </pre>
+<p>
 <em>Remarks:</em> (i) if the branch <code>public/manifolds/topic</code> did not exist
 previously on the Trac server (this should be the case if this is your first push),
 it is created by the above command; (ii) no
@@ -223,6 +232,7 @@ authentication provided by your public ssh key, as discussed above.
 Having pushed your code to a new branch of the git repository on SageMath Trac, there
 remains to open a ticket, in order to submit your work for integration in SageMath.
 To this aim, log in at  <a href="https://trac.sagemath.org/" target="_blank">trac.sagemath.org</a>, click on the "New Ticket" button in the upper right and fill the various fields as follows:
+</p>
 <ul class="default">
     <li><strong>Type</strong>: <em>defect</em> if you are fixing some bug or
     <em>enhancement</em> if you are providing some new functionality</li>
@@ -235,6 +245,7 @@ To this aim, log in at  <a href="https://trac.sagemath.org/" target="_blank">tra
     <code>topic</code> by the actual topic of your ticket)</li>
     <li><strong>Dependencies</strong>: number of a ticket (not integrated in SageMath yet) on which your ticket may depend on.</li>
 </ul>
+<p>
 You may leave the other fields to blank or to their default values; see
 the <a href="http://doc.sagemath.org/html/en/developer/trac.html#guidelines-for-opening-tickets"  target="_blank">guidelines for opening tickets</a> for more details.
 </p>

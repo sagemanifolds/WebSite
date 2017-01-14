@@ -6,7 +6,7 @@
 <title>SageManifolds: home</title>
 <meta name="keywords" content="">
 <meta name="description" content="SageManifolds: differential geometry and tensor calculus with SageMath">
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic|Roboto">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic%7CRoboto">
 <link rel="stylesheet" type="text/css" href="style.css" media="all">
 </head>
 
@@ -42,7 +42,7 @@
 
         <main>
 
-<img src="images/sage.png">
+<img src="images/sage.png" alt="SAGE">
 <h2><strong>News:</strong></h2>
 <p><strong>11 January 2017: version 1.0 is out and fully included in
 <a href="http://www.sagemath.org/" target="_blank">SageMath 7.5</a>!
@@ -61,28 +61,33 @@ The SageManifolds project aims at extending the modern computer algebra system
 <a href="http://www.sagemath.org/" target="_blank">SageMath</a> towards differential geometry and tensor calculus. All SageManifolds code is included in SageMath 7.5 (and higher versions), i.e. it does not require any separate installation.
 </p>
 <p>
-SageManifolds deals with <i>differentiable manifolds</i> of arbitrary dimension.
+SageManifolds deals with
+<a href="doc/reference/manifolds/sage/manifolds/differentiable/manifold.html" target="_blank">differentiable manifolds</a> of arbitrary dimension.
 Various coordinate charts and vector frames can be introduced on the manifold,
-which does not need to be parallelizable. A given <i>tensor field</i> is then
-described by its representations (sets of components) in each vector frame.</p>
-
+which does not need to be parallelizable. A given
+<a href="doc/reference/manifolds/sage/manifolds/differentiable/tensorfield.html" target="_blank">tensor field</a> is then
+described by its representations (sets of components) in each vector frame.
+</p>
 <p>
-Generic <i>Pseudo-Riemannian manifolds</i> can be considered, among which <i>Riemannian manifolds</i>
-and <i>Lorentzian manifolds</i>, with applications to General Relativity.
-In particular,  SageManifolds implements the computation of the Riemann curvature tensor
-and associated objects (Ricci tensor, Weyl tensor).
-SageManifolds can also deal with <i>generic affine connections</i>, not necessarily Levi-Civita
+Generic
+<a href="doc/reference/manifolds/sage/manifolds/differentiable/metric.html" target="_blank">pseudo-Riemannian manifolds</a> can be considered, among which Riemannian manifolds
+and Lorentzian manifolds, with applications to General Relativity.
+In particular,  the computation of the
+<a href="doc/reference/manifolds/sage/manifolds/differentiable/metric.html#sage.manifolds.differentiable.metric.PseudoRiemannianMetric.riemann" target="_blank">Riemann curvature tensor</a>
+and associated objects (Ricci, Weyl, Schouten and Cotton tensors) is implemented.
+SageManifolds can also deal with generic
+<a href="doc/reference/manifolds/sage/manifolds/differentiable/affine_connection.html" target="_blank" >affine connections</a>, not necessarily Levi-Civita
 ones.
 </p>
 
 <p>At present (<a href="changelog.html">version 1.0</a>), SageManifolds functionalities include:</p>
 <ul class="default">
-    <li>maps between manifolds, pullback operator</li>
-    <li>submanifolds, pushforward operator</li>
-    <li>curves in manifolds</li>
+    <li>topological manifolds: charts, open subsets, maps between manifolds, scalar fields</li>
+    <li>differentiable manifolds: tangent spaces, vector frames, tensor fields, curves
+    pullback and pushforward operators</li>
     <li>standard tensor calculus (tensor product, contraction, symmetrization, etc.),
     even on non-parallelizable manifolds</li>
-    <li>taking in charge all monoterm tensor symmetries</li>
+    <li>taking into account any monoterm tensor symmetry</li>
     <li>exterior calculus (wedge product, exterior derivative, Hodge duality)</li>
     <li>Lie derivatives of tensor fields</li>
     <li>affine connections (curvature, torsion)</li>
@@ -102,15 +107,13 @@ released under the
 To use it, see <a href="download.html">here</a>.
 </p>
 <p>
-If you want to participate in the project, visit the
+If you want to take part in the project, visit the
 <a href="contrib.html">contribute</a> page, or if you simply want to
 stay tuned, subscribe to the <a href="https://sympa.obspm.fr/wws/info/sagemanifolds.list" target="_blank">mailing list</a>.
 </p>
 <p>
 The list of current authors is <a href="authors.html">here</a>.
 </p>
-
-<h3></h3>
 
         </main>
 
