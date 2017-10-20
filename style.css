@@ -218,7 +218,6 @@ ul.style1 .first {
     padding: 30px 0px;
 }
 
-
 /* MAIN */
 
 main {
@@ -275,6 +274,32 @@ main img {
     border: 0;
 }
 
+/* TABLES */
+
+table {
+    width: 100%;
+    text-align: center;
+    border-top: 4px solid #ddd;
+}
+
+.legend {
+    width: 55%;
+    text-align: justify;
+}
+
+table img {
+    margin-left: 15px;
+    margin-top: 0px;
+    margin-bottom:10px;
+    border: 0;
+    float: center;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+    border-bottom: 4px solid #ddd;
+}
 
 /* NAVIGATION*/
 
