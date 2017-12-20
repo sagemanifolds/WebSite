@@ -64,7 +64,8 @@ SageManifolds deals with
 Various coordinate charts and vector frames can be introduced on the manifold,
 which does not need to be parallelizable. A given
 <a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/tensorfield.html" target="_blank">tensor field</a> is then
-described by its representations (sets of components) in each vector frame.
+described by its sets of components in each vector frame, with automatic change-of-frame transformations for
+overlapping vector frames.
 </p>
 <p>
 Generic
@@ -86,9 +87,11 @@ ones.
     even on non-parallelizable manifolds</li>
     <li>taking into account any monoterm tensor symmetry</li>
     <li>exterior calculus (wedge product, exterior derivative, Hodge duality)</li>
+    <li>p-vectors (wedge product, interior product, Schouten-Nijenhuis bracket)</li>
     <li>Lie derivatives of tensor fields</li>
     <li>affine connections (curvature, torsion)</li>
     <li>pseudo-Riemannian metrics</li>
+    <li>computation of geodesics</li>
     <li>some plotting capabilities (charts, points, curves, vector fields)</li>
 </ul>
 <p>For an overview, see the <a href="documentation.html">tutorial</a>
