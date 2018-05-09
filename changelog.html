@@ -44,6 +44,55 @@
 
 <h2>Changelog</h2>
 
+<h3>Version <strong>1.2</strong> (5 May 2018)</h3>
+
+<p>This version is released as part of SageMath 8.2. Here are the
+main changes with respect to v1.1:</p>
+
+<p>
+New features:
+</p>
+<ul class="default">
+<li><a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/chart_func.html" target="_blank">SymPy as an alternative to SR for symbolic calculus on manifolds</a> (ticket
+<a href="https://trac.sagemath.org/ticket/22801" target="_blank">#22801</a>);
+see this <a href="http://nbviewer.jupyter.org/github/sagemanifolds/SageManifolds/blob/master/Worksheets/v1.2/SM_sphere_S2_sympy.ipynb" target="_blank">notebook</a> for computations on the sphere S<sup>2</sup> involving only SymPy
+</li>
+<li><a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/pseudo_riemannian.html" target="_blank">Pseudo-Riemannian manifolds</a> (ticket
+<a href="https://trac.sagemath.org/ticket/24622" target="_blank">#24622</a>): manifolds can now
+be constructed with a default metric, by providing the argument <code>structure</code> to the function <code>Manifold</code>, as in
+<pre>
+M = Manifold(4, 'M', structure='Lorentzian')
+</pre>
+The default metric is then returned by the method <code>metric()</code> without any argument:
+<pre>
+g = M.metric()
+</pre>
+</li>
+<li><a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/operators.html" target="_blank">Operators for vector calculus</a> (ticket
+<a href="https://trac.sagemath.org/ticket/24622" target="_blank">#24622</a>): operators
+<code>gradient</code>, <code>divergence</code>, <code>curl</code>, <code>laplacian</code>
+and <code>dalembertian</code> are now implemented, as well as <code>dot_product</code>,
+<code>cross_product</code> and <code>norm</code>
+<li><a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/vectorframe.html#sage.manifolds.differentiable.vectorframe.VectorFrame" target="_blank">More functionalities for bases of free modules and vector frames</a> (ticket <a href="https://trac.sagemath.org/ticket/24792" target="_blank">#24792</a>): it is now possible
+to choose individual symbols for each element of a basis or to label the basis elements
+by a string (instead of an integer); moreover the operator <code>[:]</code> has been implemented for bases
+</li>
+
+</ul>
+
+<p>
+Improvements:
+</p>
+<ul class="default">
+<li>
+Full rewriting of the functions <a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/utilities.html#sage.manifolds.utilities.simplify_sqrt_real" target="_blank">simplify_sqrt_real</a> and
+<a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/utilities.html#sage.manifolds.utilities.simplify_abs_trig" target="_blank">simplify_abs_trig</a>, which are involved in simplifying the outcome of symbolic computations on manifolds (ticket <a href="https://trac.sagemath.org/ticket/24232" target="_blank">#24232</a>); in particular square roots with derivative of symbolic functions can now be simplified, as well as absolute values of cosines.
+</li>
+<li>
+Better handling of matrix output for operator <code>[:]</code> acting on sets of tensor components (ticket <a href="https://trac.sagemath.org/ticket/24884" target="_blank">#24884</a>)
+</li>
+</ul>
+
 <h3>Version <strong>1.1</strong> (7 December 2017)</h3>
 
 <p>This version is released as part of SageMath 8.1. Here are the
