@@ -44,6 +44,45 @@
 
 <h2>Changelog</h2>
 
+<p>
+<strong>Note on version numbers:</strong> since October 2018,
+version number specific to SageManifolds code are no longer issued;
+only the SageMath version number is used. This reflects
+the integration of all the code in SageMath (since SageMath 7.5 actually).
+</p>
+
+<h3>SageMath <strong>8.4</strong> (17 October 2018)</h3>
+<p>
+New features:
+</p>
+<ul class="default">
+<li><a href="http://doc.sagemath.org/html/en/reference/groups/sage/groups/lie_gps/nilpotent_lie_group.html" target="_blank">Nilpotent Lie groups</a> (ticket
+<a href="https://trac.sagemath.org/ticket/26344" target="_blank">#26344</a>): this is the
+first implementation of Lie groups in SageMath. It relies on the manifold implementation.
+In particular, the class <a href="http://doc.sagemath.org/html/en/reference/groups/sage/groups/lie_gps/nilpotent_lie_group.html#sage.groups.lie_gps.nilpotent_lie_group.NilpotentLieGroup" target="_blank"><code>NilpotentLieGroup</code></a> inheritates from both
+<a href="http://doc.sagemath.org/html/en/reference/groups/sage/groups/group.html#sage.groups.group.Group" target="_blank"><code>Group</code></a> and
+<a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/manifold.html#sage.manifolds.differentiable.manifold.DifferentiableManifold" target="_blank"><code>DifferentiableManifold</code></a>.
+</li>
+</ul>
+
+<p>
+Improvements:
+</p>
+<ul class="default">
+<li>Remove deprecated method <code>view()</code> in tensor fields
+(ticket <a href="https://trac.sagemath.org/ticket/26392" target="_blank">#26392</a>) </li>
+</ul>
+
+
+<p>
+Bug fixes:
+</p>
+<ul class="default">
+<li>Restrictions of tensor fields
+(ticket <a href="https://trac.sagemath.org/ticket/26012" target="_blank">#26012</a>) </li>
+</ul>
+
+
 <h3>Version <strong>1.3</strong> (3 August 2018)</h3>
 
 <p>This version is released as part of SageMath 8.3. Here are the
