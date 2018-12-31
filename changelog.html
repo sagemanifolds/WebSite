@@ -51,6 +51,62 @@ only the SageMath version number is used. This reflects
 the integration of all the code in SageMath, which is actually effective since SageMath 7.5.
 </p>
 
+<h3>SageMath <strong>8.5</strong> (22 December 2018)</h3>
+<p>
+New features:
+</p>
+<ul class="default">
+<li><a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/catalog.html" target="_blank">Manifolds catalog</a> (ticket
+<a href="https://trac.sagemath.org/ticket/25869" target="_blank">#25869</a>):
+in order to create rapidly standard manifolds, a catalogue of
+manifolds has been introduced; it is accessible
+via the global keyword <code>manifolds</code>. Type <code>manifolds.&lt;TAB&gt;</code>, where
+<code>&lt;TAB&gt;</code>
+stands for the tabulation key, to get the list of available manifolds (currently this
+is the sphere S<sup>2</sup>, the torus T<sup>2</sup>, Minkowski spacetime and Kerr spacetime).
+</li>
+</ul>
+
+<p>
+Improvements:
+</p>
+<ul class="default">
+<li>Improved computation of integrated curves and geodesics on manifolds
+(ticket <a href="https://trac.sagemath.org/ticket/25936" target="_blank">#25936</a>):
+new integration backend allowing for
+<a href="https://nbviewer.jupyter.org/github/FlorentinJ/Sage_examples/blob/master/solve_across_charts%20example.ipynb" target="_blank">integration over multiple charts</a> and faster
+code.
+ </li>
+<li>Parallelization of the computation of tensor components in a new frame
+and of the pullback of a tensor field
+(tickets <a href="https://trac.sagemath.org/ticket/26168" target="_blank">#26168</a> and
+<a href="https://trac.sagemath.org/ticket/26777" target="_blank">#26777</a>)
+ </li>
+<li>Make all doctests passed with Python3 in <code>src/sage/manifolds</code>
+(tickets <a href="https://trac.sagemath.org/ticket/26475" target="_blank">#26475</a> and
+<a href="https://trac.sagemath.org/ticket/26569" target="_blank">#26569</a>)
+ </li>
+<li>Make all doctests passed with Python3 in <code>src/sage/tensor</code>
+(ticket <a href="https://trac.sagemath.org/ticket/26601" target="_blank">#26601</a>)
+ </li>
+<li>Remove deprecated manifold methods <code>diff_mapping</code>, <code>riemann_metric</code>,
+<code>lorentz_metric</code> (they are replaced by respectively <code>diff_map</code>,
+<code>riemannian_metric</code> and <code>lorentzian_metric</code>)
+(ticket <a href="https://trac.sagemath.org/ticket/26609" target="_blank">#26609</a>)
+ </li>
+</ul>
+
+
+<p>
+Bug fixes:
+</p>
+<ul class="default">
+<li>Make simplifications effective in the computation of the inverse of a transition map:
+(ticket <a href="https://trac.sagemath.org/ticket/26701" target="_blank">#26701</a>) </li>
+</ul>
+
+
+
 <h3>SageMath <strong>8.4</strong> (17 October 2018)</h3>
 <p>
 New features:
