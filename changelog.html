@@ -51,6 +51,74 @@ only the SageMath version number is used. This reflects
 the integration of all the code in SageMath, which is actually effective since SageMath 7.5.
 </p>
 
+<h3>SageMath <strong>8.8</strong> (26 June 2019)</h3>
+<p>
+New features:
+</p>
+<ul class="default">
+<li><a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/tensorfield_paral.html#sage.manifolds.differentiable.tensorfield_paral.TensorFieldParal.series_expansion" target="_blank">Tensor series expansion</a> (ticket
+<a href="https://trac.sagemath.org/ticket/25866" target="_blank">#25866</a>): the series
+expansions with respect to some small parameter are governed by the new tensor field methods
+<a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/tensorfield_paral.html#sage.manifolds.differentiable.tensorfield_paral.TensorFieldParal.series_expansion" target="_blank"><code>series_expansion()</code></a>,
+<a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/tensorfield_paral.html#sage.manifolds.differentiable.tensorfield_paral.TensorFieldParal.truncate" target="_blank"><code>truncate()</code></a> and
+<a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/tensorfield_paral.html#sage.manifolds.differentiable.tensorfield_paral.TensorFieldParal.set_calc_order" target="_blank"><code>set_calc_order()</code></a>. An example of use is the
+computation of the
+near-horizon geometry of an extremal Kerr black hole, in this
+<a href="
+https://nbviewer.jupyter.org/github/sagemanifolds/SageManifolds/blob/master/Notebooks/SM_extremal_Kerr_near_horizon.ipynb"target="_blank">notebook</a>.
+</li>
+<li><a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/mixed_form.html" target="_blank">Mixed differential forms and their graded algebra</a> (ticket
+<a href="https://trac.sagemath.org/ticket/27584" target="_blank">#27584</a>):
+see this <a href="https://nbviewer.jupyter.org/github/DeRhamSource/MixedFormNotebook/blob/master/MixedAlgebra.ipynb" target="_blank">example notebook</a>.
+</li>
+<li><a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/manifold.html#sage.manifolds.manifold.TopologicalManifold.set_simplify_function" target="_blank">Customized simplifications in symbolic calculus</a> (ticket
+<a href="https://trac.sagemath.org/ticket/27601" target="_blank">#27601</a>): the user
+can introduce her own simplifying function instead of the default one. This is acheived
+thanks to the new manifold method
+<a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/manifold.html#sage.manifolds.manifold.TopologicalManifold.set_simplify_function" target="_blank"><code>set_simplify_function()</code></a>. For more flexibility, it is also possible
+to define a simplifying function chart by chart, via the new method
+<a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/calculus_method.html#sage.manifolds.calculus_method.CalculusMethod.set_simplify_function"><code>CalculusMethod.set_simplify_function()</code></a>.
+</li>
+<li>Possibility to initialize the components of a tensor field while declaring it
+(ticket <a href="https://trac.sagemath.org/ticket/27581" target="_blank">#27581</a>): see
+these <a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/vectorfield.html#sage.manifolds.differentiable.vectorfield.VectorFieldParal" target="_blank">examples</a>.
+</li>
+<li><a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/tensorfield.html#sage.manifolds.differentiable.tensorfield.TensorField.display" target="_blank">Shortcut for the display of a tensor field in a coordinate frame</a> (ticket
+<a href="https://trac.sagemath.org/ticket/27655" target="_blank">#27655</a>):
+if <code>t</code> is a tensor field and <code>X</code> a coordinate chart, one can now
+use <code>t.display(X)</code> as a shortcut for <code>t.display(X.frame(), X)</code>.
+</li>
+<li><a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/chart.html" target="_blank">Periodic coordinates</a> (ticket
+<a href="https://trac.sagemath.org/ticket/27548" target="_blank">#27548</a>):
+the new keywords <code>period=</code> and <code>periodic</code> have been added
+in the string defining a coordinate chart, as well as the method
+<a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/chart.html#sage.manifolds.chart.Chart.periods" target="_blank"><code>periods()</code></a>;
+this is useful in particular for computing geodesics that enroll with the periodic
+coordinate.
+</li>
+<li><a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/tangent_vector.html" target="_blank">Tangent vectors as derivations on scalar fields</a> (ticket
+<a href="https://trac.sagemath.org/ticket/27856" target="_blank">#27856</a>): it is now
+possible to form <code>v(f)</code> where <code>v</code> is a tangent vector to a manifold
+<code>M</code>
+and <code>f</code> is a scalar field on <code>M</code>.
+</li>
+
+</ul>
+
+<p>
+Bug fixes:
+</p>
+<ul class="default">
+<li>Bug in wedge of unnamed differential forms
+(ticket <a href="https://trac.sagemath.org/ticket/27576" target="_blank">#27576</a>)
+</li>
+<li>Error in testing whether a scalar field belongs to a module of differential forms
+(ticket <a href="https://trac.sagemath.org/ticket/27658" target="_blank">#27658</a>)
+</li>
+</ul>
+
+
+
 <h3>SageMath <strong>8.7</strong> (23 March 2019)</h3>
 <p>
 No new feature regarding manifolds with respect to SageMath 8.6 (but many things
@@ -114,7 +182,7 @@ and of the pullback of a tensor field
 Bug fixes:
 </p>
 <ul class="default">
-<li>Make simplifications effective in the computation of the inverse of a transition map:
+<li>Make simplifications effective in the computation of the inverse of a transition map
 (ticket <a href="https://trac.sagemath.org/ticket/26701" target="_blank">#26701</a>) </li>
 </ul>
 
