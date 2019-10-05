@@ -51,6 +51,48 @@ only the SageMath version number is used. This reflects
 the integration of all the code in SageMath, which is actually effective since SageMath 7.5.
 </p>
 
+<h3>SageMath <strong>8.9</strong> (29 September 2019)</h3>
+<p>
+New features:
+</p>
+<ul class="default">
+<li><a href="https://doc.sagemath.org/html/en/thematic_tutorials/vector_calculus.html" target="_blank">Tutorials about vector calculus</a> (ticket
+<a href="https://trac.sagemath.org/ticket/27703" target="_blank">#27703</a>): a series of tutorials devoted to vector calculus in the 3-dimensional Euclidean space and in the Euclidean plane,
+both in Cartesian and curvilinear coordinates,
+added to <a href="https://doc.sagemath.org/html/en/thematic_tutorials/" target="_blank">SageMath standard documentation</a>.
+</li>
+<li>Keyword argument <code>verbose</code> changed to <code>check</code> in the
+method
+<a href="http://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/chart.html#sage.manifolds.chart.CoordChange.set_inverse" target="_blank"><code>CoordChange.set_inverse()</code></a>, with the
+default set to <code>True</code> and improved printed output (ticket
+<a href="https://trac.sagemath.org/ticket/28422" target="_blank">#28422</a>)
+</li>
+</ul>
+
+<p>
+Bug fixes:
+</p>
+<ul class="default">
+<li>Fix an issue in calculus on manifolds with incomplete set of transition maps (ticket
+<a href="https://trac.sagemath.org/ticket/28072" target="_blank">#28072</a>)
+</li>
+<li>Better error messages related to non-free vector field modules (ticket
+<a href="https://trac.sagemath.org/ticket/28331" target="_blank">#28331</a>)
+</li>
+<li>Fix some issues with submanifolds and improve their documentation (ticket
+<a href="https://trac.sagemath.org/ticket/28344" target="_blank">#28344</a>)
+</li>
+<li>Better handling of Manifold uniqueness (ticket
+<a href="https://trac.sagemath.org/ticket/28365" target="_blank">#28365</a>)
+</li>
+<li>Fix a bug in computing the second fundamental form of a Riemannian submanifold
+that is not part of a foliation (ticket
+<a href="https://trac.sagemath.org/ticket/28462" target="_blank">#28462</a>)
+</li>
+</ul>
+
+
+
 <h3>SageMath <strong>8.8</strong> (26 June 2019)</h3>
 <p>
 New features:
