@@ -94,11 +94,11 @@ the SageManifolds code lies in two subdirectories:
 
 <p>
 Before starting to modify the sources, make sure that you are dealing with the
-latest stable version of SageMath (8.9 at the moment). Even better, you could
+latest stable version of SageMath (9.0 at the moment). Even better, you could
 work on the latest <em>development</em> version of SageMath.
 This is even necessary if the planned changes depend upon previous SageManifolds tickets
 merged in the development version of SageMath
-(the so-called <em>beta</em> versions, for instance 9.0.beta0).
+(the so-called <em>beta</em> versions, for instance 9.1.beta0).
 </p>
 <p>
 To download and install the development version of SageMath, proceed as follows. First of all, make sure the prerequisites needed to build
@@ -114,8 +114,6 @@ SageMath sources in a new directory (<code>sage</code>)) <br>
 <code>git checkout develop</code> &nbsp; &nbsp; (switch to the development branch) <br>
 <code>git pull</code> &nbsp; &nbsp; (download the
 latest development sources) <br>
-<code>make configure</code> <br>
-<code>./configure --with-python=3</code> &nbsp; &nbsp; (building Python 3 version of SageMath)<br>
 <code>MAKE="make -j8" make</code> &nbsp; &nbsp; (compile SageMath on 8 threads; adapt to your CPU) <br><br>
 For more details, see the
 <a href="https://doc.sagemath.org/html/en/developer/walk_through.html" target="_blank">git section</a>
@@ -134,8 +132,7 @@ version:
 Then edit or add some source files in <code>SAGE_ROOT/src/sage/manifolds/</code> (or <code>SAGE_ROOT/src/sage/tensor/modules/</code> for pure algebraic stuff). It is mandatory to follow
 the programming rules exposed in the <a href="https://doc.sagemath.org/html/en/developer/" target="_blank">Sage Developer’s Guide</a>; in particular read carefully the section
 <a href="https://doc.sagemath.org/html/en/developer/#writing-code-for-sage" target="_blank">Writing Code for Sage</a>.
-Above all, write <a href="https://wiki.sagemath.org/Python3-compatible%20code" target="_blank">Python3-compatible code</a>, since the migration of SageMath to Python 3 is close,
-being scheduled for SageMath 9.0 (the next stable release!).
+Above all, write <a href="https://wiki.sagemath.org/Python3-compatible%20code" target="_blank">Python3-compatible code</a>, since SageMath is now based on Python 3.
 </p>
 
 <p>

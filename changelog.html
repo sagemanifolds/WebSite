@@ -51,6 +51,80 @@ only the SageMath version number is used. This reflects
 the integration of all the code in SageMath, which is actually effective since SageMath 7.5.
 </p>
 
+<h3>SageMath <strong>9.0</strong> (1 January 2020)</h3>
+<p>
+New features:
+</p>
+<ul class="default">
+<li>Vector bundles (ticket
+<a href="https://trac.sagemath.org/ticket/28159" target="_blank">#28159</a>):
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/vector_bundle.html">topological vector bundles</a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/trivialization.html">trivializations</a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/local_frame.html">local frames</a>, <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/section.html">simple sections</a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/vector_bundle.html">differentiable vector bundles and tensor bundles</a>
+</li>
+<li><a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/characteristic_class.html">Characteristic classes on vector bundles</a> (ticket
+<a href="https://trac.sagemath.org/ticket/27784" target="_blank">#27784</a>)
+</li>
+<li><a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/manifold.html#sage.manifolds.differentiable.manifold.DifferentiableManifold.vector_frame">Construction of a vector frame from a family of vector fields</a> (ticket
+<a href="https://trac.sagemath.org/ticket/28716" target="_blank">#28716</a>)
+</li>
+<li><a href="https://doc.sagemath.org/html/en/reference/tensor_free_modules/sage/tensor/modules/tensor_with_indices.html">Multiple symmetries and multiple contractions with index notation</a> (ticket
+<a href="https://trac.sagemath.org/ticket/28784" target="_blank">#28784</a>)
+</li>
+<li><a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/integrated_curve.html#sage.manifolds.differentiable.integrated_curve.IntegratedCurve.solve">More control on the numerical ODE solver for integrated curves and geodesics</a> (ticket
+<a href="https://trac.sagemath.org/ticket/28707" target="_blank">#28707</a>)
+</li>
+</ul>
+
+<p>
+Improvements:
+</p>
+<ul class="default">
+<li>Improved computation of connection coefficients (ticket
+<a href="https://trac.sagemath.org/ticket/28543" target="_blank">#28543</a>)
+</li>
+<li>Improved treatment of scalar field restrictions (ticket
+<a href="https://trac.sagemath.org/ticket/28554" target="_blank">#28554</a>)
+</li>
+<li>Better treatment of the zero element of scalar and tensor fields (ticket
+<a href="https://trac.sagemath.org/ticket/28562" target="_blank">#28562</a>)
+</li>
+<li>Output dicts and lists copied (ticket
+<a href="https://trac.sagemath.org/ticket/28563" target="_blank">#28563</a>)
+</li>
+<li>Consistent naming of tensor fields and sections (ticket
+<a href="https://trac.sagemath.org/ticket/28564" target="_blank">#28564</a>)
+</li>
+<li>Mixed forms improvements (ticket
+<a href="https://trac.sagemath.org/ticket/28578" target="_blank">#28578</a>)
+</li>
+</ul>
+
+<p>
+Bug fixes:
+</p>
+<ul class="default">
+<li>Fix wedge product on the right with a scalar field (ticket
+<a href="https://trac.sagemath.org/ticket/28579" target="_blank">#28579</a>)
+</li>
+<li>Use standard notation for pullback and pushforward on manifolds (ticket
+<a href="https://trac.sagemath.org/ticket/28600" target="_blank">#28600</a>)
+</li>
+<li>Fix <code>set_restriction()</code> behaviour when the subdomain is the domain itself (ticket
+<a href="https://trac.sagemath.org/ticket/28628" target="_blank">#28628</a>)
+</li>
+<li>Unnecessary coordinate check while initializing an integrated curve (ticket
+<a href="https://trac.sagemath.org/ticket/28669" target="_blank">#28669</a>)
+</li>
+<li>Fix name of section modules on vector bundles (ticket
+<a href="https://trac.sagemath.org/ticket/28690" target="_blank">#28690</a>)
+</li>
+<li>Scalar fields raise <code>AttributeError</code> on <code>show_identifiers()</code> call (ticket
+<a href="https://trac.sagemath.org/ticket/28769" target="_blank">#28769</a>)
+</li>
+</ul>
+
 <h3>SageMath <strong>8.9</strong> (29 September 2019)</h3>
 <p>
 New features:
