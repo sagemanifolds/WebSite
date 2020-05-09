@@ -51,6 +51,70 @@ only the SageMath version number is used. This reflects
 the integration of all the code in SageMath, which is actually effective since SageMath 7.5.
 </p>
 
+<h3>SageMath <strong>9.1</strong> (?? May 2020)</h3>
+<p>
+New features:
+</p>
+<ul class="default">
+<li>Manifolds with a degenerate metric: <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/degenerate_submanifold.html">degenerate submanifolds</a> and
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/degenerate.html">degenerate manifolds</a>
+(tickets
+<a href="https://trac.sagemath.org/ticket/26355" target="_blank">#26355</a>,
+<a href="https://trac.sagemath.org/ticket/29080" target="_blank">#29080</a> and
+<a href="https://trac.sagemath.org/ticket/29440" target="_blank">#29440</a>);
+introduces
+degenerate metric, rigging, screen distribution, Weingarten map and shape operator;
+see <a href="https://nbviewer.jupyter.org/github/sagemanifolds/SageManifolds/blob/master/Notebooks/SM_degenerate_metric.ipynb" target="_blank">example 1</a> and
+<a href="https://nbviewer.jupyter.org/github/sagemanifolds/SageManifolds/blob/master/Notebooks/SM_Schwarzschild_horizon_degen.ipynb" target="_blank">example 2</a>.
+</li>
+<li><a href="https://doc.sagemath.org/html/en/reference/tensor_free_modules/sage/tensor/modules/tensor_with_indices.html">New functionalities in index notation for tensors</a>
+(ticket <a href="https://trac.sagemath.org/ticket/28787" target="_blank">#28787</a>);
+for instance, it is now possible to perform a contraction on a sum:
+<code>a['^k_i']*(b['_kj'] + b['_jk'])</code> yields the same result
+as <code>a.contract(0, 2*b.symmetrize())</code>.
+</li>
+<li><a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/tensorfield.html#sage.manifolds.differentiable.tensorfield.TensorField.apply_map">New method
+<code>apply_map()</code> for tensor fields</a> (ticket
+<a href="https://trac.sagemath.org/ticket/29244" target="_blank">#29244</a>): applies
+a function to the coordinate expressions of all components of a tensor field in a given vector frame; this allows for operations like factorization, expansion, simplification or substitution.
+</li>
+</ul>
+
+<p>
+Improvements:
+</p>
+<ul class="default">
+<li>More flexible coercions in mixed form algebra
+(ticket <a href="https://trac.sagemath.org/ticket/28916" target="_blank">#28916</a>)
+</li>
+<li>Improved treatment of multiplication by zero of a mixed form
+(ticket <a href="https://trac.sagemath.org/ticket/28921" target="_blank">#28921</a>)
+</li>
+<li>Improved documentation of vector bundles
+(ticket <a href="https://trac.sagemath.org/ticket/28963" target="_blank">#28963</a>)
+</li>
+<li>Improved documentation of characteristic classes
+(tickets <a href="https://trac.sagemath.org/ticket/28854" target="_blank">#28854</a>
+and <a href="https://trac.sagemath.org/ticket/29470" target="_blank">#29470</a>)
+</li>
+</ul>
+
+<p>
+Bug fixes:
+</p>
+<ul class="default">
+<li>Fix notation of the inverse of an automorphism that has an non-atomic name
+(ticket <a href="https://trac.sagemath.org/ticket/28973" target="_blank">#28973</a>)
+</li>
+<li>Fix bug in setting the calculus method on manifolds
+(ticket <a href="https://trac.sagemath.org/ticket/29021" target="_blank">#29021</a>)
+</li>
+<li>Wrong parent when using a differential form of degree zero
+(ticket <a href="https://trac.sagemath.org/ticket/29570" target="_blank">#29570</a>)
+</li>
+
+</ul>
+
 <h3>SageMath <strong>9.0</strong> (1 January 2020)</h3>
 <p>
 New features:
