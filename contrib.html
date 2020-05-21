@@ -109,11 +109,13 @@ let us say, your home directory (<em>not</em> the root directory of your current
 stable SageMath install):
 <br><br>
 <code>git clone https://github.com/sagemath/sage.git</code> &nbsp; &nbsp; (download
-SageMath sources in a new directory (<code>sage</code>)) <br>
-<code>cd sage</code> &nbsp; &nbsp; (this directory will be your new <code>SAGE_ROOT</code>)<br>
+SageMath sources in a new directory, named <code>sage</code>) <br>
+<code>cd sage</code> &nbsp; &nbsp; (this directory will be the <code>SAGE_ROOT</code> directory)<br>
 <code>git checkout develop</code> &nbsp; &nbsp; (switch to the development branch) <br>
 <code>git pull</code> &nbsp; &nbsp; (download the
 latest development sources) <br>
+<code>make configure</code> <br>
+<code>./configure</code> <br>
 <code>MAKE="make -j8" make</code> &nbsp; &nbsp; (compile SageMath on 8 threads; adapt to your CPU) <br><br>
 For more details, see the
 <a href="https://doc.sagemath.org/html/en/developer/walk_through.html" target="_blank">git section</a>
