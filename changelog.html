@@ -51,6 +51,134 @@ only the SageMath version number is used. This reflects
 the integration of all the code in SageMath, which is actually effective since SageMath 7.5.
 </p>
 
+<h3>SageMath <strong>9.2</strong> (24 October 2020)</h3>
+<p>
+New features (see the <a href="https://wiki.sagemath.org/ReleaseTours/sage-9.2#Manifolds">Release Tour</a>):
+</p>
+<ul class="default">
+<li>Manifold orientability: orientations of <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/manifold.html#sage.manifolds.differentiable.manifold.DifferentiableManifold.orientation">differentiable manifolds</a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/vector_bundle.html#sage.manifolds.vector_bundle.TopologicalVectorBundle.orientation">vector bundles</a> and
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/manifold.html#sage.manifolds.manifold.TopologicalManifold.orientation">topological manifolds</a> have been introduced
+(tickets <a href="https://trac.sagemath.org/ticket/30178" target="_blank">#30178</a>
+and <a href="https://trac.sagemath.org/ticket/30519" target="_blank">#30519</a>)
+</li>
+<li>The exterior derivative of a differentiable form
+<code>f</code> can be obtained via <code>diff(f)</code>, instead of <code>f.exterior_derivative()</code>, see this
+<a href="https://wiki.sagemath.org/ReleaseTours/sage-9.2#diff_function_for_exterior_derivatives">example</a>
+(ticket <a href="https://trac.sagemath.org/ticket/29953" target="_blank">#29953</a>)
+</li>
+<li>The methods <code>dot_product()</code>, <code>cross_product()</code> and <code>norm()</code> can be now be used for vector fields defined along a differentiable map, the codomain of which is a Riemannian manifold, see this
+<a href="https://wiki.sagemath.org/ReleaseTours/sage-9.2#Dot_and_cross_products_of_vector_fields_along_a_curve">example</a>
+(ticket <a href="https://trac.sagemath.org/ticket/30318" target="_blank">#30318</a>)
+</li>
+<li>The action of a <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/bundle_connection.html">bundle connection</a> on sections has been implemented
+(ticket <a href="https://trac.sagemath.org/ticket/30209" target="_blank">#30209</a>)
+</li>
+<li>Euclidean spaces have been endowed with a
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/euclidean.html#sage.manifolds.differentiable.euclidean.EuclideanSpace.dist">distance function</a>, making them metric spaces,
+see this <a href="https://wiki.sagemath.org/ReleaseTours/sage-9.2#Euclidean_spaces_as_metric_spaces">example</a>
+(ticket <a href="https://trac.sagemath.org/ticket/30062" target="_blank">#30062</a>)
+</li>
+<li>Unicode characters, in particular Greek letters, are now allowed in <a href="https://doc.sagemath.org/html/en/reference/tensor_free_modules/sage/tensor/modules/tensor_with_indices.html">index notation for tensors</a>
+(ticket <a href="https://trac.sagemath.org/ticket/29248" target="_blank">#29248</a>)
+</li>
+<li><a href="https://doc.sagemath.org/html/en/reference/tensor_free_modules/sage/tensor/modules/finite_rank_free_module.html#sage.tensor.modules.finite_rank_free_module.FiniteRankFreeModule.isomorphism_with_fixed_basis">Basis-dependent isomorphism</a> between a <code>FiniteRankFreeModule</code> and an object in the
+category <code>ModulesWithBasis</code>, see this <a href="https://wiki.sagemath.org/ReleaseTours/sage-9.2#Connecting_FiniteRankFreeModule_and_free_modules_with_distinguished_basis">example</a>
+(ticket <a href="https://trac.sagemath.org/ticket/30094" target="_blank">#30094</a>)
+</li>
+<li>Tensors on free modules can now be declared immutable, via the new method <code>set_immutable()</code>
+(tickets <a href="https://trac.sagemath.org/ticket/30181" target="_blank">#30181</a>,
+<a href="https://trac.sagemath.org/ticket/30275" target="_blank">#30275</a>)
+</li>
+<li>Chart functions have coercion via restriction
+(ticket <a href="https://trac.sagemath.org/ticket/30267" target="_blank">#30267</a>)
+</li>
+<li>Affine connections have been endowed with a <code>copy</code> method
+(ticket <a href="https://trac.sagemath.org/ticket/30285" target="_blank">#30285</a>)
+</li>
+
+</ul>
+
+<p>
+Improvements:
+</p>
+<ul class="default">
+<li>Improve assignement of bundle connections
+(ticket <a href="https://trac.sagemath.org/ticket/30208" target="_blank">#30208</a>)
+</li>
+<li>Simplify unique representation code for dependent modules in <code>FiniteRankFreeModule</code>
+(ticket <a href="https://trac.sagemath.org/ticket/30250" target="_blank">#30250</a>)
+</li>
+<li>Simplify <code>_repr_</code> of <code>ExtPowerFreeModule</code> and <code>ExtPowerDualFreeModule</code>
+(ticket <a href="https://trac.sagemath.org/ticket/30251" target="_blank">#30251</a>)
+</li>
+<li>Create a default basis in the base module if necessary in <code>TensorFreeModule._an_element_</code>
+(ticket <a href="https://trac.sagemath.org/ticket/30254" target="_blank">#30254</a>)
+</li>
+<li>
+<code>FiniteRankFreeModule</code>: Move all module identifications to methods
+<code>exterior_power</code>, <code>dual_exterior_power</code> and <code>tensor_module</code>
+(ticket <a href="https://trac.sagemath.org/ticket/30255" target="_blank">#30255</a>)
+</li>
+<li>Add test suite to <code>sage.tensor.modules.free_module_basis</code>
+(ticket <a href="https://trac.sagemath.org/ticket/30287" target="_blank">#30287</a>)
+</li>
+<li>Immutability and hashability for scalar fields
+(ticket <a href="https://trac.sagemath.org/ticket/30266" target="_blank">#30266</a>)
+</li>
+<li>Improve scalar field arithmetics via the new method <code>is_trivial_one</code>
+(ticket <a href="https://trac.sagemath.org/ticket/30291" target="_blank">#30291</a>)
+</li>
+<li>Declare sections of vector bundles with name only
+(ticket <a href="https://trac.sagemath.org/ticket/30228" target="_blank">#30228</a>)
+</li>
+<li>Immutability of affine connections
+(ticket <a href="https://trac.sagemath.org/ticket/30280" target="_blank">#30280</a>)
+</li>
+<li>Immutability of sections of vector bundles
+(ticket <a href="https://trac.sagemath.org/ticket/30288" target="_blank">#30288</a>)
+</li>
+<li>Speed up construction of high-dimensional Euclidean spaces
+(ticket <a href="https://trac.sagemath.org/ticket/30061" target="_blank">#30061</a>)
+</li>
+<li>Coercion from <code>ChartFunctionRing</code> to <code>ScalarFieldAlgebra</code>
+(ticket <a href="https://trac.sagemath.org/ticket/30112" target="_blank">#30112</a>)
+</li>
+<li>Some flake8 cleanup
+(ticket <a href="https://trac.sagemath.org/ticket/30538" target="_blank">#30538</a>)
+</li>
+</ul>
+
+<p>
+Bug fixes:
+</p>
+<ul class="default">
+<li>Normalize init argument for unique representation in <code>FiniteRankFreeModule</code>
+(ticket <a href="https://trac.sagemath.org/ticket/30169" target="_blank">#30169</a>)
+</li>
+<li>Wedge product of multivector field with scalar field
+(ticket <a href="https://trac.sagemath.org/ticket/29628" target="_blank">#29628</a>)
+</li>
+<li>Fix initialization of vector field with rational components
+(ticket <a href="https://trac.sagemath.org/ticket/29639" target="_blank">#29639</a>)
+</li>
+<li>Fix not equal comparison of mixed forms
+(ticket <a href="https://trac.sagemath.org/ticket/30108" target="_blank">#30108</a>)
+</li>
+<li>Failed conversion yields unconclusive error message
+(ticket <a href="https://trac.sagemath.org/ticket/30191" target="_blank">#30191</a>)
+</li>
+<li>Fix display of a continuous map between open intervals
+(ticket <a href="https://trac.sagemath.org/ticket/30289" target="_blank">#30289</a>)
+</li>
+<li>Fix unions of subsets of a fixed open set
+(ticket <a href="https://trac.sagemath.org/ticket/30401" target="_blank">#30401</a>)
+</li>
+<li>Fix <code>set_default_frame</code> on parallelizable manifolds
+(ticket <a href="https://trac.sagemath.org/ticket/30320" target="_blank">#30320</a>)
+</li>
+</ul>
+
 <h3>SageMath <strong>9.1</strong> (20 May 2020)</h3>
 <p>
 New features:
