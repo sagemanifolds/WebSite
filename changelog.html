@@ -51,6 +51,66 @@ only the SageMath version number is used. This reflects
 the integration of all the code in SageMath, which is actually effective since SageMath 7.5.
 </p>
 
+
+<h3>SageMath <strong>9.3</strong> (9 May 2021)</h3>
+<p>
+New features (see also the <a href="https://wiki.sagemath.org/ReleaseTours/sage-9.3#Manifolds">Release Tour</a>):
+</p>
+<ul class="default">
+<li><a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/examples/sphere.html#sage.manifolds.differentiable.examples.sphere.Sphere">Spheres of arbitrary dimension</a>
+have been added to the <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/catalog.html">manifolds catalog</a>; they are accessible via the command <code>manifolds.Sphere(n)</code>; see the <a href="https://wiki.sagemath.org/ReleaseTours/sage-9.3#Spheres_added_to_the_manifold_catalog">S<sup>3</sup> example</a> (ticket <a href="https://trac.sagemath.org/ticket/30804" target="_blank">#30804</a>)
+</li>
+<li>The ambient metric is used by default when computing the <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/diff_form.html#sage.manifolds.differentiable.diff_form.DiffForm.hodge_dual">Hodge dual</a> of a differential form; see
+this <a href="https://wiki.sagemath.org/ReleaseTours/sage-9.3#Use_of_ambient_metric_by_default_for_the_Hodge_dual_of_a_differential_form">example</a> (ticket <a href="https://trac.sagemath.org/ticket/31322">#31322</a>)
+</li>
+</ul>
+
+<p>Improvements:</p>
+
+<ul class="default">
+<li>Immutability of chart functions
+(ticket <a href="https://trac.sagemath.org/ticket/30310">#30310</a>)
+</li>
+<li>Immutability of bundle connections
+(ticket <a href="https://trac.sagemath.org/ticket/30284">#30284</a>)
+</li>
+<li>Add folder for manifold examples
+(ticket <a href="https://trac.sagemath.org/ticket/30799">#30799</a>)
+</li>
+<li>Stronger categories for manifold examples: connectedness
+(ticket <a href="https://trac.sagemath.org/ticket/31243">#31243</a>)
+</li>
+<li>Documentation of item assignment behavior for bundle connections
+(ticket <a href="https://trac.sagemath.org/ticket/31215">#31215</a>)
+</li>
+<li>Mutability of sections and tensor fields
+(ticket <a href="https://trac.sagemath.org/ticket/31255">#31255</a>)
+</li>
+<li>Remove deprecated <code>form</code> input for bundle connections
+(ticket <a href="https://trac.sagemath.org/ticket/31273">#31273</a>)
+</li>
+<li>Make self-diffeomorphisms default
+(ticket <a href="https://trac.sagemath.org/ticket/31323">#31323</a>)
+</li>
+</ul>
+
+<p>
+Bug fixes:
+</p>
+<ul class="default">
+<li>Fix trivial coercion of the type <code>Modules(QQ)(FiniteRankFreeModule(QQ, 3))</code>
+(ticket <a href="https://trac.sagemath.org/ticket/30174">#30174</a>)
+</li>
+<li>Fix <code>UniqueRepresentation</code> behavior of subintervals of <code>OpenInterval</code>
+(ticket <a href="https://trac.sagemath.org/ticket/30830">#30830</a>)
+</li>
+<li>Fix some typos in manifolds
+(ticket <a href="https://trac.sagemath.org/ticket/31202">#31202</a>)
+</li>
+</ul>
+
+
+
 <h3>SageMath <strong>9.2</strong> (24 October 2020)</h3>
 <p>
 New features (see also the <a href="https://wiki.sagemath.org/ReleaseTours/sage-9.2#Manifolds">Release Tour</a>):
