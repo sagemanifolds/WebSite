@@ -51,6 +51,198 @@ only the SageMath version number is used. This reflects
 the integration of all the code in SageMath, which is actually effective since SageMath 7.5.
 </p>
 
+<h3>SageMath <strong>9.4</strong> (22 August 2021)</h3>
+
+<p>
+<strong>New features</strong> (see the <a href="https://wiki.sagemath.org/ReleaseTours/sage-9.4#Manifolds">Release Tour</a> for examples):
+</p>
+
+<ul class="default">
+<li>Unicode characters are now used to display various operators in plain text mode:
+⊗, ∧ , →, ↦,  ∂/∂ (ticket <a href="https://trac.sagemath.org/ticket/30473">#30473</a>)
+</li>
+<li>The global constructors <code>RealLine</code>
+and <code>OpenInterval</code> are deprecated; use instead <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/examples/real_line.html#sage.manifolds.differentiable.examples.real_line.RealLine"><code>manifolds.RealLine</code></a>
+and <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/examples/real_line.html#sage.manifolds.differentiable.examples.real_line.OpenInterval"><code>manifolds.OpenInterval</code></a>. Moreover, Sage's generic constructor <a href="https://doc.sagemath.org/html/en/reference/sets/sage/sets/real_set.html#sage.sets.real_set.RealSet"><code>RealSet</code></a> now returns a 1-dimensional manifold if the keyword argument
+<code>structure='differentiable'</code> is used, with <code>RealSet(-oo, +oo, structure='differentiable')</code> being equivalent to <code>manifolds.RealLine()</code>
+(tickets <a href="https://trac.sagemath.org/ticket/30832">#30832</a>
+and <a href="https://trac.sagemath.org/ticket/31881">#31881</a>)
+</li>
+<li>While declaring a new coordinate chart, coordinate restrictions must now be passed
+via the new keyword argument <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/chart.html#sage.manifolds.chart.Chart"><code>coord_restrictions</code></a>; consequently, the method
+<code>Chart.add_restrictions</code> is deprecated
+(ticket <a href="https://trac.sagemath.org/ticket/32102">#32102</a>)
+</li>
+<li>Coordinate charts have been endowed with the method
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/chart.html#sage.manifolds.chart.RealChart.codomain"><code>codomain</code></a>
+(ticket <a href="https://trac.sagemath.org/ticket/32089">#32089</a>)
+</li>
+<li>Manifold subsets have been endowed with new methods
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.declare_empty"><code>declare_empty</code></a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.declare_nonempty"><code>declare_nonempty</code></a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.is_empty"><code>is_empty</code></a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.has_defined_points"><code>has_defined_points</code></a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.declare_subset"><code>declare_subset</code></a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.declare_superset"><code>declare_superset</code></a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.declare_disjoint"><code>declare_disjoint</code></a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.declare_equal"><code>declare_equal</code></a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.equal_subsets"><code>equal_subsets</code></a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.equal_subset_family"><code>equal_subset_family</code></a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.difference"><code>difference</code></a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.complement"><code>complement</code></a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.open_subset"><code>open_subset</code></a>,
+and
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.open_cover_family"><code>open_cover_family</code></a>;
+moreover, the methods
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.union"><code>union</code></a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.declare_union"><code>declare_union</code></a> and
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.intersection"><code>intersection</code></a>
+can now take an arbitrary number of arguments
+(tickets <a href="https://trac.sagemath.org/ticket/31677">#31677</a>,
+<a href="https://trac.sagemath.org/ticket/31732">#31732</a>,
+<a href="https://trac.sagemath.org/ticket/31736">#31736</a>,
+<a href="https://trac.sagemath.org/ticket/31763">#31763</a>,
+<a href="https://trac.sagemath.org/ticket/31764">#31764</a> and
+<a href="https://trac.sagemath.org/ticket/31798">#31798</a>)
+</li>
+<li><a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/family.html">Families of manifold objects</a> indexed by their names have been implemented through the new classes
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/family.html#sage.manifolds.family.ManifoldSubsetFiniteFamily"><code>ManifoldObjectFiniteFamily</code></a> and
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/family.html#sage.manifolds.family.ManifoldObjectFiniteFamily"><code>ManifoldSubsetFiniteFamily</code></a>
+and the new methods <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.subset_family"><code>subset_family</code></a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.superset_family">superset_family</a> and
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.open_superset_family">open_superset_family</a>
+of manifold subsets
+(tickets <a href="https://trac.sagemath.org/ticket/31680">#31680</a>
+and <a href="https://trac.sagemath.org/ticket/31727">#31727</a>)
+</li>
+<li>Subsets or supersets of a manifold subset can now be treated as finite posets,
+via the new methods
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.subset_poset"><code>subset_poset</code></a>,
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.superset_poset"><code>superset_poset</code></a> of manifold subsets; for vizualization purposes,
+the methods
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.subset_digraph"><code>subset_digraph</code></a> and
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.superset_digraph"><code>superset_digraph</code></a>
+have been introduced
+(ticket <a href="https://trac.sagemath.org/ticket/31680">#31680</a>)
+</li>
+<li>The method <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.open_covers"><code>open_covers</code></a> of manifold subsets is now a generator of
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/family.html#sage.manifolds.family.ManifoldObjectFiniteFamily"><code>ManifoldSubsetFiniteFamily</code></a>
+instances, instead of returning a list of lists, and the takes new keyword arguments <code>trivial</code>
+and <code>supersets</code>.
+Similarly, the method <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.subsets"><code>subsets</code></a> is a generator of subsets, instead of returning
+a frozen set
+(ticket <a href="https://trac.sagemath.org/ticket/31718">#31718</a>)
+</li>
+<li><a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subsets/closure.html">Topological closures of manifold subsets</a> have been implemented
+through the new class
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subsets/closure.html"><code>ManifoldSubsetClosure</code></a>
+and the new method <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.closure"><code>closure</code></a>
+of manifold subsets; in addition,
+manifold subsets are endowed with new methods <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.is_closed"><code>is_closed</code></a>
+and <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subset.html#sage.manifolds.subset.ManifoldSubset.declare_closed"><code>declare_closed</code></a>
+(ticket <a href="https://trac.sagemath.org/ticket/31644">#31644</a>)
+</li>
+<li><a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/continuous_map_image.html">Images of continuous maps</a> have been implemented through the new class
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/continuous_map_image.html"><code>ImageManifoldSubset</code></a> and the new method
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/continuous_map.html#sage.manifolds.continuous_map.ContinuousMap.image"><code>image</code></a> of continuous maps,
+as well as the new method
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/topological_submanifold.html#sage.manifolds.topological_submanifold.TopologicalSubmanifold.as_subset"><code>as_subset</code></a> of submanifolds
+(ticket <a href="https://trac.sagemath.org/ticket/31653">#31653</a>)
+</li>
+<li><a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subsets/pullback.html">Preimages of continuous maps</a> have been implemented through the new class
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/subsets/pullback.html#sage.manifolds.subsets.pullback.ManifoldSubsetPullback"><code>ManifoldSubsetPullback</code></a> and
+the new method <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/continuous_map.html#sage.manifolds.continuous_map.ContinuousMap.preimage"><code>preimage</code></a> (alias: <code>pullback</code>)
+of continuous maps
+(ticket <a href="https://trac.sagemath.org/ticket/31688">#31688</a>)
+</li>
+<li>A tangent vector at a given point of a differentiable manifold can now be constructed
+directly by means of the new method <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/manifold.html#sage.manifolds.differentiable.manifold.DifferentiableManifold.tangent_vector"><code>tangent_vector</code></a>, without having to explicitely construct first the corresponding tangent space
+(ticket <a href="https://trac.sagemath.org/ticket/31609">#31609</a>)
+</li>
+<li>Scalar fields have been endowed with the method <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/scalarfield.html#sage.manifolds.scalarfield.ScalarField.copy_from"><code>copy_from</code></a>
+(ticket <a href="https://trac.sagemath.org/ticket/31654">#31654</a>)
+</li>
+<li><a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/de_rham_cohomology.html">De Rham cohomology</a> has been implemented via the new classes
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/de_rham_cohomology.html#sage.manifolds.differentiable.de_rham_cohomology.DeRhamCohomologyRing"><code>DeRhamCohomologyRing</code></a> and
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/de_rham_cohomology.html#sage.manifolds.differentiable.de_rham_cohomology.DeRhamCohomologyClass"><code>DeRhamCohomologyClass</code></a>; the
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/mixed_form_algebra.html">algebra of mixed differential forms</a> has been turned into a de Rham complex
+(ticket <a href="https://trac.sagemath.org/ticket/31691">#31691</a>)
+</li>
+<li>New method <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/mixed_form.html#sage.manifolds.differentiable.mixed_form.MixedForm.set_comp"><code>set_comp</code></a> for mixed forms
+(ticket <a href="https://trac.sagemath.org/ticket/30272">#30272</a>)
+</li>
+<li>Characteristic classes on differentiable vector bundles are now endowed with a method
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/characteristic_class.html#sage.manifolds.differentiable.characteristic_class.CharacteristicClass.sequence"><code>sequence</code></a>, which provides the multiplicative/additive sequence associated with the characteristic class
+(ticket <a href="https://trac.sagemath.org/ticket/30211">#30211</a>)
+</li>
+<li>Polyhedrons have been endowed with the method
+<a href="https://doc.sagemath.org/html/en/reference/discrete_geometry/sage/geometry/polyhedron/base.html#sage.geometry.polyhedron.base.Polyhedron_base.affine_hull_manifold"><code>affine_hull_manifold</code></a>,
+which returns their affine hull as a manifold
+(ticket <a href="https://trac.sagemath.org/ticket/31659">#31659</a>)
+</li>
+</ul>
+
+<p>
+<strong>Improvements:</strong>
+</p>
+
+<ul class="default">
+<li>Remove Python 2 compatibility in internal code
+(ticket <a href="https://trac.sagemath.org/ticket/31704">#31704</a>)
+</li>
+<li>Improve immutability of scalar fields
+(ticket <a href="https://trac.sagemath.org/ticket/30311">#30311</a>)
+</li>
+<li>Make open subsets of immersed/embedded submanifolds immersed/embedded submanifolds
+(ticket <a href="https://trac.sagemath.org/ticket/31674">#31674</a>)
+</li>
+<li>Pass <code>name</code> and <code>latex_name</code> to copy method in <code>set_restriction</code>
+(ticket <a href="https://trac.sagemath.org/ticket/31854">#31854</a>)
+</li>
+<li>Refine category of scalar fields
+(ticket <a href="https://trac.sagemath.org/ticket/31883">#31883</a>)
+</li>
+<li>Eliminate direct use of the <code>Chart._domain</code> attribute
+(ticket <a href="https://trac.sagemath.org/ticket/32009">#32009</a>)
+</li>
+<li>New method <code>Chart._parse_coordinates</code> attribute
+(ticket <a href="https://trac.sagemath.org/ticket/32116">#32116</a>)
+</li>
+<li>Simplify the code of <code>VectorField.__call__</code>
+(ticket <a href="https://trac.sagemath.org/ticket/31633">#31633</a>)
+</li>
+<li>Slight speed-up of <code>copy</code> method of tensor fields
+(ticket <a href="https://trac.sagemath.org/ticket/31658">#31658</a>)
+</li>
+<li>Refactor display behavior of mixed forms
+(ticket <a href="https://trac.sagemath.org/ticket/31692">#31692</a>)
+</li>
+<li>Immutability functionality for mixed forms
+(ticket <a href="https://trac.sagemath.org/ticket/31706">#31706</a>)
+</li>
+</ul>
+
+<p>
+<strong>Bug fixes:</strong>
+</p>
+
+<ul class="default">
+<li>The inverse of the inverse is now <code>self</code> in <code>CoordChange</code>
+(ticket <a href="https://trac.sagemath.org/ticket/31923">#31923</a>)
+</li>
+<li>Fix bug in <code>Chart.__init__</code> regarding the determination of top charts
+when two charts share the same coordinate symbols
+(ticket <a href="https://trac.sagemath.org/ticket/32112">#32112</a>)
+</li>
+<li>Fix mixed form name bug for pullback bundle
+(ticket <a href="https://trac.sagemath.org/ticket/31784">#31784</a>)
+</li>
+<li>Fix pullback silent failure in some cases with multiple charts
+(ticket <a href="https://trac.sagemath.org/ticket/31904">#31904</a>)
+</li>
+</ul>
+
+
 
 <h3>SageMath <strong>9.3</strong> (9 May 2021)</h3>
 <p>
@@ -66,6 +258,10 @@ this <a href="https://wiki.sagemath.org/ReleaseTours/sage-9.3#Use_of_ambient_met
 <li>If the codomain is omitted while declaring a diffeomorphism, a self-diffeomorphism is implied
 (ticket <a href="https://trac.sagemath.org/ticket/31323">#31323</a>)
 </li>
+<li>New method <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/bundle_connection.html#sage.manifolds.differentiable.bundle_connection.BundleConnection.copy"><code>copy</code></a>
+for bundle connections and improved handling of their mutability
+(ticket <a href="https://trac.sagemath.org/ticket/30284">#30284</a>)
+</li>
 </ul>
 
 <p>Improvements:</p>
@@ -73,9 +269,6 @@ this <a href="https://wiki.sagemath.org/ReleaseTours/sage-9.3#Use_of_ambient_met
 <ul class="default">
 <li>Immutability of chart functions
 (ticket <a href="https://trac.sagemath.org/ticket/30310">#30310</a>)
-</li>
-<li>Immutability of bundle connections
-(ticket <a href="https://trac.sagemath.org/ticket/30284">#30284</a>)
 </li>
 <li>Add folder for manifold examples
 (ticket <a href="https://trac.sagemath.org/ticket/30799">#30799</a>)

@@ -265,6 +265,9 @@ main code {
     color: #000;
 }
 
+a code {
+    color: #990000;
+}
 
 main img {
     float: right;
