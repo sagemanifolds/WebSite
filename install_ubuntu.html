@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Installing SageMath 9.5 in Ubuntu</title>
+<meta name="keywords" content="">
+<meta name="description" content="SageManifolds: differential geometry and tensor calculus with SageMath">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic%7CRoboto">
+<link rel="stylesheet" type="text/css" href="style.css" media="all">
+</head>
+
+<body>
+
+<!-- header -->
+<div id="header-wrapper">
+    <div id="header" class="container">
+
+        <div id="logo">
+            <h1><a href="index.html">SageManifolds</a></h1>
+            <h3><a href="index.html">Differential geometry and tensor calculus with SageMath</a></h3>
+        </div>
+
+        <nav class="topmenu">
+            <ul>
+                <li class="first"><a href="index.html" accesskey="1" title="">Home</a></li>
+                <li class="active"><a href="download.html" accesskey="2" title="">Download</a></li>
+                <li><a href="examples.html" accesskey="3" title="">Examples</a></li>
+                <li><a href="documentation.html" accesskey="4" title="">Documentation</a></li>
+                <li><a href="gallery.html" accesskey="5" title="">Gallery</a></li>
+                <li><a href="contrib.html" accesskey="6" title="">Contribute</a></li>
+                <li><a href="contact.html" accesskey="7" title="">Contact/Help</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- wrapper -->
+<div id="wrapper">
+    <div id="page" class="container">
+
+        <main>
+
+<h2>Installing SageMath 9.5 in Ubuntu 20.04</h2>
+
+<p>Since version 9.5, there is no longer any pre-built SageMath binary for Ubuntu
+on the <a href="https://www.sagemath.org/download.html">SageMath mirrors</a>.
+However building SageMath 9.5 from source on a Ubuntu computer is very easy.
+</p>
+
+<p>
+First, install the dependencies, i.e. the Ubuntu packages required
+to build SageMath: simply open a terminal and type the single (long) line
+</p>
+
+<p>
+<code>
+sudo apt-get install  bc binutils bzip2 ca-certificates cliquer cmake curl ecl eclib-tools fflas-ffpack flintqs g++ gengetopt git gfan gfortran glpk-utils gmp-ecm lcalc libatomic-ops-dev libboost-dev libbraiding-dev libbrial-dev libbrial-groebner-dev libbz2-dev libcdd-dev libcdd-tools libcliquer-dev libcurl4-openssl-dev libec-dev libecm-dev libffi-dev libflint-arb-dev libflint-dev libfreetype6-dev libgc-dev libgd-dev libgf2x-dev libgiac-dev libgivaro-dev libglpk-dev libgmp-dev libgsl-dev libhomfly-dev libiml-dev liblfunction-dev liblrcalc-dev liblzma-dev libm4rie-dev libmpc-dev libmpfi-dev libmpfr-dev libncurses5-dev libntl-dev libopenblas-dev libpari-dev libpcre3-dev libplanarity-dev libppl-dev libprimesieve-dev libpython3-dev libqhull-dev libreadline-dev librw-dev libsingular4-dev libsqlite3-dev libssl-dev libsuitesparse-dev libsymmetrica2-dev libz-dev libzmq3-dev libzn-poly-dev m4 make nauty openssl palp pari-doc pari-elldata pari-galdata pari-galpol pari-gp2c pari-seadata patch perl pkg-config planarity ppl-dev python3-distutils r-base-dev r-cran-lattice singular sqlite3 sympow tachyon tar tox xcas xz-utils xz-utils
+</code>
+</p>
+
+<p>To benefit from extra functionalities when running SageMath (e.g. exporting a Jupyter notebook to pdf),
+it is recommended to install some additional Ubuntu packages:
+</p>
+
+<p>
+<code>
+sudo apt-get install texlive-latex-extra texlive-xetex latexmk pandoc dvipng
+</code>
+</p>
+
+<p>
+Then you can download SageMath 9.5 sources and launch the build by typing
+</p>
+
+<pre>
+git clone --branch master https://github.com/sagemath/sage.git
+cd sage
+make configure
+./configure
+MAKE="make -j8" make
+</pre>
+<p>The last command launches the build in parallel on 8 threads (as specified by <code>-j8</code>); adapt
+to your CPU (usually you may choose a number of threads that is twice the number of cores of your CPU).
+The build time is about half an hour on a modern CPU. Once it is finished, you can run
+</p>
+<pre>
+./sage -n
+</pre>
+<p>
+A Jupyter page should then open in your browser.
+Click on "New" and select "SageMath 9.5" to open a Jupyter notebook
+with a SageMath kernel.
+</p>
+
+        </main>
+
+        <aside>
+            <nav>
+                <h2>Categories</h2>
+                <ul class="style1">
+                    <li><p><a href="index.html">Home</a></p></li>
+                    <li class="active"><p><a href="download.html">Download</a></p></li>
+                    <li><p><a href="examples.html">Examples</a></p></li>
+                    <li><p><a href="documentation.html">Documentation</a></p></li>
+                    <li><p><a href="gallery.html">Gallery</a></p></li>
+                    <li><p><a href="contrib.html">Contribute</a></p></li>
+                    <li><p><a href="contact.html">Contact/Help</a></p></li>
+                </ul>
+            </nav>
+        </aside>
+
+    </div>
+
+<footer>
+    <p>Based on a template from <a href="http://www.freecsstemplates.org" rel="nofollow">FreeCSSTemplates.org</a></p>
+</footer>
+
+</div>
+</body>
+</html>

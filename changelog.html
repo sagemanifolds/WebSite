@@ -51,13 +51,58 @@ only the SageMath version number is used. This reflects
 the integration of all the code in SageMath, which is actually effective since SageMath 7.5.
 </p>
 
-<h3>SageMath <strong>9.5</strong> (?? January 2022)</h3>
+<h3>SageMath <strong>9.5</strong> (30 January 2022)</h3>
 
 <p>
 <strong>New features</strong> (see the <a href="https://wiki.sagemath.org/ReleaseTours/sage-9.5#Manifolds">Release Tour</a> for examples):
 </p>
 
-In progress...
+<ul class="default">
+<li> <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/de_rham_cohomology.html">De Rham cohomology</a> and
+<a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/characteristic_cohomology_class.html">characteristic classes</a> have been improved, notably in terms of performance, and new features have been added (see <a href="https://wiki.sagemath.org/ReleaseTours/sage-9.5#De_Rham_cohomology_and_characteristic_classes">here</a> for details)
+ (tickets <a href="https://trac.sagemath.org/ticket/29581">#29581</a> and <a href="https://trac.sagemath.org/ticket/32270">#32270</a>)
+</li>
+<li> The method <a href="https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/curve.html#sage.manifolds.differentiable.curve.DifferentiableCurve.plot">plot</a> of curves now automatically performs a coordinate change to make the plot in terms a specified chart, in case the curve has not known been initialized in this chart yet (ticket <a href="https://trac.sagemath.org/ticket/32578">#32578</a>)
+</li>
+</ul>
+
+<p>
+<strong>Improvements:</strong>
+</p>
+
+<ul class="default">
+<li>Faster generation of non-redundant indices for tensors with symmetries
+(ticket <a href="https://trac.sagemath.org/ticket/32318">#32318</a>)
+</li>
+<li>Unnecessary uses of symbolic functions removed from <code>sage.tensor.modules</code>
+(ticket <a href="https://trac.sagemath.org/ticket/32415">#32415</a>)
+</li>
+<li>Doctests involving <code>SR</code> marked optional in <code>sage.tensor.modules</code>
+(ticket <a href="https://trac.sagemath.org/ticket/32712">#32712</a>)
+</li>
+<li><code>sage.tensor.modules</code> made independent from <code>sage.manifolds</code>
+(ticket <a href="https://trac.sagemath.org/ticket/32708">#32708</a>)
+</li>
+</ul>
+
+<p>
+<strong>Bug fixes:</strong>
+</p>
+
+<ul class="default">
+<li>Better handling of metrics on pseudo-Riemannian submanifolds
+(ticket <a href="https://trac.sagemath.org/ticket/31781">#31781</a>)
+</li>
+<li>Fix a few documentation issues
+(ticket <a href="https://trac.sagemath.org/ticket/32457">#32457</a>)
+</li>
+<li>Fix bug in multiple tensor contractions with scalar result
+(ticket <a href="https://trac.sagemath.org/ticket/32355">#32355</a>)
+<li>Fix bug in coordinate range when restricting charts to subdomains
+(ticket <a href="https://trac.sagemath.org/ticket/32929">#32929</a>)
+</li>
+</ul>
+
 
 <h3>SageMath <strong>9.4</strong> (22 August 2021)</h3>
 

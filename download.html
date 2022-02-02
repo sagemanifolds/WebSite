@@ -44,23 +44,27 @@
 <h2>Download and run</h2>
 
 <p>Since all SageManifolds code is included in SageMath, it suffices to
-install the latter from the <a href="https://www.sagemath.org/download.html" target="_blank">SageMath download page</a>.</p>
-
-<p>Installing SageMath 9.4 from a downloaded binary archive is very easy.
-For instance, if your system is macOS, visit this <a href="https://github.com/3-manifolds/Sage_macOS/releases">page</a>; if it is
-Ubuntu 20.04, download the archive
-<code>sage-9.4-Ubuntu_20.04-x86_64.tar.bz2</code> from one the
-<a href="https://www.sagemath.org/download-linux.html" target="_blank">mirrors</a>, save it in your home directory and type the
-following lines in a terminal:
+install SageMath 9.5 to benefit from the latest manifold functionalities:
 </p>
+
+<ul class="default">
+<li><strong>Linux:</strong> most major Linux distributions have SageMath packages; however, it
+may be a version older than 9.5. To install SageMath 9.5 on Ubuntu 20.04 (and other Debian-based systems), simply follow these
+<a href="install_ubuntu.html">steps</a>; for other distributions, see the
+<a href="https://doc.sagemath.org/html/en/installation/source.html">installation manual</a>.
+</li>
+<li><strong>macOS:</strong> visit this <a href="https://github.com/3-manifolds/Sage_macOS/releases">page</a>
+</li>
+<li><strong>Windows:</strong> visit this <a href="https://github.com/sagemath/sage-windows/releases">page</a>
+</li>
+</ul>
+
+Having installed SageMath, if you run
 <pre>
-sudo apt-get install python-is-python3
-tar jxvf sage-9.4-Ubuntu_20.04-x86_64.tar.bz2
-cd SageMath
-./sage -n jupyter
+sage -n
 </pre>
-A Jupyter home page should then open in your browser.
-Click on "New" and select "SageMath 9.4" to open a Jupyter notebook
+a Jupyter page should open in your browser.
+Click on "New" and select "SageMath 9.5" to open a Jupyter notebook
 with a SageMath kernel.
 In the first cell, if you type
 <pre>
@@ -84,10 +88,10 @@ If you are familiar with <a href="https://www.docker.com/" target="_blank">Docke
 <h2>Use without installation</h2>
 <p>
 Instead of installing SageMath on your computer, you can run it remotely
-via <a href="https://cocalc.com/" target="_blank">CoCalc</a> (ex <em>SageMathCloud</em>):
+via <a href="https://cocalc.com/" target="_blank">CoCalc</a>:
 </p>
 <ul class="default">
-<li>in a  <strong>Jupyter notebook:</strong> in the <em>Kernel</em> menu, choose <em>Change kernel</em> and select <em>SageMath 9.4</em> (or higher)
+<li>in a  <strong>Jupyter notebook:</strong> in the <em>Kernel</em> menu, choose <em>Change kernel</em> and select <em>SageMath 9.5</em> (or higher)
 <li>in a <strong>SageMath worksheet:</strong> to have nice LaTeX-typeset outputs, type
 <code>typeset_mode(True)</code> in the first cell.</li>
 </ul>
