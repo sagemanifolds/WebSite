@@ -43,9 +43,11 @@
 
 <h2>Installing SageMath 9.5 in Ubuntu 20.04</h2>
 
-<p>Since version 9.5, there is no longer any pre-built SageMath binary for Ubuntu
-on the <a href="https://www.sagemath.org/download.html">SageMath mirrors</a>.
-However building SageMath 9.5 from source on a Ubuntu computer is very easy.
+<p>
+Since version 9.5 of SageMath, pre-built SageMath binaries for Ubuntu
+are no longer available for download from the
+<a href="https://www.sagemath.org/download.html">SageMath mirrors</a>.
+However building SageMath 9.5 from source in Ubuntu is very easy.
 </p>
 
 <p>
@@ -55,7 +57,7 @@ to build SageMath: simply open a terminal and type the single (long) line
 
 <p>
 <code>
-sudo apt-get install  bc binutils bzip2 ca-certificates cliquer cmake curl ecl eclib-tools fflas-ffpack flintqs g++ gengetopt git gfan gfortran glpk-utils gmp-ecm lcalc libatomic-ops-dev libboost-dev libbraiding-dev libbrial-dev libbrial-groebner-dev libbz2-dev libcdd-dev libcdd-tools libcliquer-dev libcurl4-openssl-dev libec-dev libecm-dev libffi-dev libflint-arb-dev libflint-dev libfreetype6-dev libgc-dev libgd-dev libgf2x-dev libgiac-dev libgivaro-dev libglpk-dev libgmp-dev libgsl-dev libhomfly-dev libiml-dev liblfunction-dev liblrcalc-dev liblzma-dev libm4rie-dev libmpc-dev libmpfi-dev libmpfr-dev libncurses5-dev libntl-dev libopenblas-dev libpari-dev libpcre3-dev libplanarity-dev libppl-dev libprimesieve-dev libpython3-dev libqhull-dev libreadline-dev librw-dev libsingular4-dev libsqlite3-dev libssl-dev libsuitesparse-dev libsymmetrica2-dev libz-dev libzmq3-dev libzn-poly-dev m4 make nauty openssl palp pari-doc pari-elldata pari-galdata pari-galpol pari-gp2c pari-seadata patch perl pkg-config planarity ppl-dev python3-distutils r-base-dev r-cran-lattice singular sqlite3 sympow tachyon tar tox xcas xz-utils xz-utils
+sudo apt install bc binutils bzip2 ca-certificates cliquer cmake curl ecl eclib-tools fflas-ffpack flintqs g++ gengetopt gfan gfortran git glpk-utils gmp-ecm lcalc libatomic-ops-dev libboost-dev libbraiding-dev libbrial-dev libbrial-groebner-dev libbz2-dev libcdd-dev libcdd-tools libcliquer-dev libcurl4-openssl-dev libec-dev libecm-dev libffi-dev libflint-arb-dev libflint-dev libfreetype6-dev libgc-dev libgd-dev libgf2x-dev libgiac-dev libgivaro-dev libglpk-dev libgmp-dev libgsl-dev libhomfly-dev libiml-dev liblfunction-dev liblrcalc-dev liblzma-dev libm4rie-dev libmpc-dev libmpfi-dev libmpfr-dev libncurses5-dev libntl-dev libopenblas-dev libpari-dev libpcre3-dev libplanarity-dev libppl-dev libprimesieve-dev libpython3-dev libqhull-dev libreadline-dev librw-dev libsingular4-dev libsqlite3-dev libssl-dev libsuitesparse-dev libsymmetrica2-dev libz-dev libzmq3-dev libzn-poly-dev m4 make nauty openssl palp pari-doc pari-elldata pari-galdata pari-galpol pari-gp2c pari-seadata patch perl pkg-config planarity ppl-dev python3-distutils r-base-dev r-cran-lattice singular sqlite3 sympow tachyon tar tox xcas xz-utils
 </code>
 </p>
 
@@ -65,7 +67,7 @@ it is recommended to install some additional Ubuntu packages:
 
 <p>
 <code>
-sudo apt-get install texlive-latex-extra texlive-xetex latexmk pandoc dvipng
+sudo apt install texlive-latex-extra texlive-xetex latexmk pandoc dvipng
 </code>
 </p>
 
@@ -74,19 +76,30 @@ Then you can download SageMath 9.5 sources and launch the build by typing
 </p>
 
 <pre>
-git clone --branch master https://github.com/sagemath/sage.git
+git clone --branch master --tags -q https://github.com/sagemath/sage.git
 cd sage
 make configure
-./configure
-MAKE="make -j8" make
+./configure -q
+MAKE="make -j8" make -s V=0
 </pre>
+
 <p>The last command launches the build in parallel on 8 threads (as specified by <code>-j8</code>); adapt
 to your CPU (usually you may choose a number of threads that is twice the number of cores of your CPU).
-The build time is about half an hour on a modern CPU. Once it is finished, you can run
+The build time is about half an hour on a modern CPU. Once it is finished, you can create a symbolic link by typing
 </p>
+
 <pre>
-./sage -n
+sudo ln -sf $(pwd)/sage /usr/local/bin
 </pre>
+
+<p>
+Then you can change to any directory and start Sage in Jupyter by running
+</p>
+
+<pre>
+sage -n
+</pre>
+
 <p>
 A Jupyter page should then open in your browser.
 Click on "New" and select "SageMath 9.5" to open a Jupyter notebook
