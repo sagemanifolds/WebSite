@@ -76,11 +76,11 @@ Then you can download SageMath 9.5 sources and launch the build by typing
 </p>
 
 <pre>
-git clone --branch master --tags -q https://github.com/sagemath/sage.git
+git clone --branch master https://github.com/sagemath/sage.git
 cd sage
 make configure
-./configure -q
-MAKE="make -j8" make -s V=0
+./configure
+MAKE="make -j8" make
 </pre>
 
 <p>The last command launches the build in parallel on 8 threads (as specified by <code>-j8</code>); adapt
@@ -93,7 +93,7 @@ sudo ln -sf $(pwd)/sage /usr/local/bin
 </pre>
 
 <p>
-Then you can change to any directory and start Sage in Jupyter by running
+Then you can change to any directory and start SageMath in Jupyter by running
 </p>
 
 <pre>
