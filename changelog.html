@@ -59,26 +59,57 @@ the integration of all the code in SageMath, which is actually effective since S
 
 <ul class="default">
 <li> <a href="
-https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/symplectic_form.html">Simplectic structures</a> have been introduced (musical isomorphisms, symplectic forms, Poisson tensor, Liouville volume form, Poisson bracket of functions, Hamiltonion vector fields and
-symplectic Hodge dual of a differential form)
+https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/differentiable/symplectic_form.html">Symplectic structures</a> have been introduced; this encompasses musical isomorphisms, symplectic forms, Poisson tensor, Liouville volume form, Poisson bracket of functions, Hamiltonion vector fields and
+symplectic Hodge dual of a differential form; see the <a href="https://trac.sagemath.org/wiki/ReleaseTours/sage-9.6#Manifolds">Release Tour</a> for examples
 (ticket <a href="https://trac.sagemath.org/ticket/30362">#30362</a>)
 </li>
+<li> <a href="
+https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/catalog.html#sage.manifolds.catalog.RealProjectiveSpace">Projective spaces</a> have been added to the manifold catalog
+(ticket <a href="https://trac.sagemath.org/ticket/33221">#33221</a>)
+</li>
+<li>
+The <a href="
+https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/manifold.html#sage.manifolds.manifold.Manifold">Manifold</a> constructor has been slightly  improved: when parameters such as <code>diff_degree</code> or <code>metric_name</code> are given, the implied structure is selected without having to specify it via the parameter
+<code>structure</code>
+(ticket <a href="https://trac.sagemath.org/ticket/33001">#33001</a>)
 </ul>
 
-TBC
 
 <p>
 <strong>Improvements:</strong>
 </p>
 
-TBC
+Some performance improvements have been implemented:
+<ul class="default">
+<li>no try to simplify trivial expressions consisting only of a single number or symbolic variable
+(ticket <a href="https://trac.sagemath.org/ticket/33110">#33110</a>)
+</li>
+<li>use the first Bianchi identity in the computation of the Riemann tensor
+(ticket <a href="https://trac.sagemath.org/ticket/33110">#33110</a>)
+</li>
+<li>compute volume forms with contravariant indices only as needed
+(ticket <a href="https://trac.sagemath.org/ticket/33110">#33110</a>)
+</li>
+</ul>
 
 <p>
 <strong>Bug fixes:</strong>
 </p>
 
+<ul class="default">
+<li>Better handling of default charts on spheres
+(ticket <a href="https://trac.sagemath.org/ticket/32953">#32953</a>)
+</li>
+<li>Fix a bug in <code>ExpressionNice</code> with composite variables
+(ticket <a href="https://trac.sagemath.org/ticket/33399">#33399</a>)
+</li>
+<li>Fix a bug regarding the name of interior products resulting to zero
+(ticket <a href="https://trac.sagemath.org/ticket/33780">#33780</a>)
+</li>
+</ul>
 
-TBC
+
+
 
 
 <h3>SageMath <strong>9.5</strong> (30 January 2022)</h3>
