@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Installing SageMath 9.5 in Ubuntu</title>
+<title>Installing SageMath 9.6 in Ubuntu</title>
 <meta name="keywords" content="">
 <meta name="description" content="SageManifolds: differential geometry and tensor calculus with SageMath">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic%7CRoboto">
@@ -44,19 +44,27 @@
 <h2>Installing SageMath 9.5 in Ubuntu 22.04</h2>
 
 <p>
-The version of SageMath provided as a system package for Ubuntu 22.04 is 9.5; so it suffices
-to install the Ubuntu package <code>sagemath-jupyter</code> via the package
-manager or by running the command
+The version of SageMath provided as a system package for Ubuntu 22.04 is 9.5; to
+install it, it suffices to run the command
 </p>
+<p>
 <code>
 sudo apt install sagemath-jupyter
 </code>
+</p>
+<p>
+If you would like to install version 9.6 instead, remove the system package
+<code>sagemath</code> if already installed, and follow the
+instructions below:
+</p>
 
-<h2>Installing SageMath 9.5 in Ubuntu 20.04</h2>
+<h2>Installing SageMath 9.6 in Ubuntu 20.04 (and higher)</h2>
+
 
 <p>
-The version of SageMath provided as a system package for Ubuntu 20.04 is only 9.0.
-However building SageMath 9.5 from source in Ubuntu 20.04 is very easy.
+The version of SageMath provided as a system package is only 9.0 for Ubuntu 20.04
+and 9.5 for Ubuntu 22.04.
+However building SageMath 9.6 from source in Ubuntu 20.04 or 22.04 is very easy.
 </p>
 
 <p>
@@ -81,7 +89,7 @@ sudo apt install texlive-latex-extra texlive-xetex latexmk pandoc dvipng
 </p>
 
 <p>
-Then you can download SageMath 9.5 sources and launch the build by typing
+Then you can download SageMath 9.6 sources and launch the build by typing
 </p>
 
 <pre>
@@ -111,7 +119,7 @@ sage -n
 
 <p>
 A Jupyter page should then open in your browser.
-Click on "New" and select "SageMath 9.5" to open a Jupyter notebook
+Click on "New" and select "SageMath 9.6" to open a Jupyter notebook
 with a SageMath kernel.
 </p>
 
