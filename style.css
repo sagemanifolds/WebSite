@@ -30,7 +30,11 @@ p, ol, ul {
     margin-top: 0px;
 }
 
-ol, ul {
+ol{
+    margin: 0px;
+}
+
+ul {
     margin: 0px;
     padding: 0px;
     list-style:  none
