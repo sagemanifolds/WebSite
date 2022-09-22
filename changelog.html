@@ -51,6 +51,55 @@ only the SageMath version number is used. This reflects
 the integration of all the code in SageMath, which is actually effective since SageMath 7.5.
 </p>
 
+<h3>SageMath <strong>9.7</strong> (19 September 2022)</h3>
+
+<p>
+<strong>New features</strong> (see the <a href="https://trac.sagemath.org/wiki/ReleaseTours/sage-9.7#Manifolds">Release Tour</a> for examples):
+</p>
+
+<ul class="default">
+<li>Tensor products of free modules of finite rank have been implemented, via the
+new method <a href="
+https://doc.sagemath.org/html/en/reference/tensor_free_modules/sage/tensor/modules/finite_rank_free_module.html#sage.tensor.modules.finite_rank_free_module.FiniteRankFreeModule_abstract.tensor_product">tensor_product</a>; in particular this regards
+free modules of tensor fields on parallelizable manifolds
+(ticket <a href="https://trac.sagemath.org/ticket/31276">#31276</a>)
+</li>
+<li>Class <a href="https://doc.sagemath.org/html/en/reference/tensor_free_modules/sage/tensor/modules/free_module_basis.html#sage.tensor.modules.free_module_basis.Basis_abstract"><code>Basis_abstract</code></a> now inherits from
+<a href="https://doc.sagemath.org/html/en/reference/sets/sage/sets/family.html#sage.sets.family.AbstractFamily"><code>AbstractFamily</code></a>, so that vector bases are endowed with
+methods <code>items</code>, <code>keys</code> and <code>values</code>
+(ticket <a href="https://trac.sagemath.org/ticket/30300">#30300</a>)
+</li>
+</ul>
+
+<p>
+<strong>Improvements:</strong>
+</p>
+
+<ul class="default">
+<li>Classes <a href="https://doc.sagemath.org/html/en/reference/tensor_free_modules/sage/tensor/modules/finite_rank_free_module.html#sage.tensor.modules.finite_rank_free_module.FiniteRankFreeModule"><code>FiniteRankFreeModule</code></a> and <a href="https://doc.sagemath.org/html/en/reference/tensor_free_modules/sage/tensor/modules/tensor_free_module.html#sage.tensor.modules.tensor_free_module.TensorFreeModule"><code>TensorFreeModule</code></a>
+now inherit from a common abstract base class:
+<a href="https://doc.sagemath.org/html/en/reference/tensor_free_modules/sage/tensor/modules/finite_rank_free_module.html#sage.tensor.modules.finite_rank_free_module.FiniteRankFreeModule_abstract"><code>FiniteRankFreeModule_abstract</code></a> (ticket <a href="https://trac.sagemath.org/ticket/34424">#34424</a>)
+</li>
+<li>Construction methods added to free modules of finite rank (ticket <a href="https://trac.sagemath.org/ticket/30235">#30235</a>)
+</li>
+<li>Imports from <code>sage.arith.all</code> and <code>sage.rings.all</code> have been replaced by more specific imports (ticket <a href="https://trac.sagemath.org/ticket/34428">#34428</a>)
+</li>
+</ul>
+
+<p>
+<strong>Bug fixes:</strong>
+</p>
+
+<ul class="default">
+<li><code>Manifold.options.omit_function_arguments</code> was ineffective for arguments that were not in alphabetic order
+(ticket <a href="https://trac.sagemath.org/ticket/33957">#33957</a>)
+</li>
+<li>Some docstrings have been fixed
+(ticket <a href="https://trac.sagemath.org/ticket/34158</a>">#34158</a>)
+</li>
+</ul>
+
+
 <h3>SageMath <strong>9.6</strong> (15 May 2022)</h3>
 
 <p>
@@ -80,13 +129,13 @@ https://doc.sagemath.org/html/en/reference/manifolds/sage/manifolds/manifold.htm
 
 Some performance improvements have been implemented:
 <ul class="default">
-<li>no try to simplify trivial expressions consisting only of a single number or symbolic variable
+<li>No try to simplify trivial expressions consisting only of a single number or symbolic variable
 (ticket <a href="https://trac.sagemath.org/ticket/33110">#33110</a>)
 </li>
-<li>use the first Bianchi identity in the computation of the Riemann tensor
+<li>Use the first Bianchi identity in the computation of the Riemann tensor
 (ticket <a href="https://trac.sagemath.org/ticket/33110">#33110</a>)
 </li>
-<li>compute volume forms with contravariant indices only as needed
+<li>Compute volume forms with contravariant indices only as needed
 (ticket <a href="https://trac.sagemath.org/ticket/33110">#33110</a>)
 </li>
 </ul>
