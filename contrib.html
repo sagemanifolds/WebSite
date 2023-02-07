@@ -58,20 +58,13 @@ If you would like to share a notebook for the <a href="examples.html">examples</
 
 <p>
 If you know about Python (*), please consider reviewing SageManifolds code under development for the next version of SageMath.
-Tickets ready for review are those whose number is displayed in
-<span style="color:#FFA500;">orange</span> on
-the <a href="https://trac.sagemath.org/ticket/30525" target="_blank">Trac page</a>
-(the <span style="color:#008000;">green</span> ones are tickets which got
-a positive review, and the  <span style="color:#008000;"><del>barred green</del></span>
-ones are tickets already integrated in SageMath).
-</p>
-<p>Please follow the
-<a href="https://doc.sagemath.org/html/en/developer/reviewer_checklist.html#chapter-review" target="_blank">reviewer guidelines</a>. You may also find more information on
-SageMath Trac development server
-<a href="https://doc.sagemath.org/html/en/developer/trac.html" target="_blank">here</a>.
+Such a code is available as open pull requests listed at this
+<a href="https://github.com/sagemath/sage/issues/30525" target="_blank">GitHub page</a>.
+Please follow the
+<a href="https://doc.sagemath.org/html/en/developer/reviewer_checklist.html#chapter-review" target="_blank">reviewer guidelines</a>.
 </p>
 
-<p>(*) Even if you are not a Python guru, you can significantly contribute to a ticket review by checking the mathematical correctness and documentation quality of the proposed changes.</p>
+<p>(*) Even if you are not a Python guru, you can significantly contribute to a pull request review by checking the mathematical correctness and documentation quality of the proposed changes.</p>
 
 <h2>Writing code</h2>
 
@@ -104,22 +97,21 @@ merged in the development version of SageMath
 To download and install the development version of SageMath, proceed as follows. First of all, make sure the prerequisites needed to build
 SageMath from sources are installed on your computer: check this
 <a href="https://doc.sagemath.org/html/en/installation/source.html#prerequisites" target="_blank">page</a>
-or this <a href="install_ubuntu.html" target="_blank">page for Ubuntu/Debian</a>. Then type the following commands in a terminal from,
+or this <a href="install_ubuntu.html">page for Ubuntu/Debian</a>.
+Then, create a (free) account at <a href="https://github.com" target="_blank">github.com</a>,
+if you don't have any yet, and <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository" target="_blank">fork</a> the repository <a href="https://github.com/sagemath/sage" target="_blank"><code>sagemath/sage</code></a> under
+<code>USERNAME/sage</code>, where <code>USERNAME</code> corresponds to your GitHub account.
+Next type the following commands in a terminal from,
 let us say, your home directory (<em>not</em> the root directory of your current
 stable SageMath install):
 <br><br>
-<code>git clone https://github.com/sagemath/sage.git</code> &nbsp; &nbsp; (download
-SageMath sources in a new directory, named <code>sage</code>) <br>
+<code>git clone https://github.com/USERNAME/sage.git</code> &nbsp; &nbsp; (download
+SageMath sources into a new directory, named <code>sage</code>) <br>
 <code>cd sage</code> &nbsp; &nbsp; (this directory will be the <code>SAGE_ROOT</code> directory)<br>
-<code>git checkout develop</code> &nbsp; &nbsp; (switch to the development branch) <br>
-<code>git pull</code> &nbsp; &nbsp; (download the
-latest development sources) <br>
+<code>git remote add upstream https://github.com/sagemath/sage.git</code> <br>
 <code>make configure</code> <br>
 <code>./configure</code> <br>
 <code>MAKE="make -j8" make</code> &nbsp; &nbsp; (compile SageMath on 8 threads; adapt to your CPU) <br><br>
-For more details, see the
-<a href="https://doc.sagemath.org/html/en/developer/walk_through.html" target="_blank">git section</a>
-of Sage's Developer Guide.
 </p>
 
 <h3>2. Coding your changes</h3>
@@ -134,7 +126,6 @@ version:
 Then edit or add some source files in <code>SAGE_ROOT/src/sage/manifolds/</code> (or <code>SAGE_ROOT/src/sage/tensor/modules/</code> for pure algebraic stuff). It is mandatory to follow
 the programming rules exposed in the <a href="https://doc.sagemath.org/html/en/developer/" target="_blank">Sage Developer’s Guide</a>; in particular read carefully the section
 <a href="https://doc.sagemath.org/html/en/developer/#writing-code-for-sage" target="_blank">Writing Code for Sage</a>.
-Above all, write <a href="https://wiki.sagemath.org/Python3-compatible%20code" target="_blank">Python3-compatible code</a>, since SageMath is now based on Python 3.
 </p>
 
 <p>
@@ -195,70 +186,15 @@ which is at <code>SAGE_ROOT/local/share/doc/sage/html/en/reference/index.html</c
 <h3>5. Sharing your changes</h3>
 
 <p>
-When you are ready to share your changes, you shall push them to the
-<a href="https://trac.sagemath.org/" target="_blank">SageMath Trac development server</a>
-and open an associated <a href="https://doc.sagemath.org/html/en/developer/trac.html#guidelines-for-opening-tickets" target="_blank">ticket</a>.
-If you don't have any account on the Trac server yet,
-either use your <a href="https://github.com/" target="_blank">GitHub</a> login (if you have one) or ask for a legacy account, according to <a href="https://trac.sagemath.org/" target="_blank">these instructions</a>.
-Then, link your ssh public key to your trac account
-according to
-<a href="https://doc.sagemath.org/html/en/developer/trac.html#manually-linking-your-public-key-to-your-trac-account" target="_blank">these instructions</a>
-(if you don't have a ssh public key yet, see <a href="https://doc.sagemath.org/html/en/developer/trac.html#manually-generating-your-ssh-keys">here</a>
-to generate one).
-</p>
-
-<p>
-Before pushing your changes to the Trac server, you have to add the latter to your list
-of remote git repositories by
-</p>
-<pre>
-git remote add trac git://trac.sagemath.org/sage.git -t master
-git remote set-url --push trac git@trac.sagemath.org:sage.git
-</pre>
-Then commit your changes:
+When you are ready to share your changes, create a new commit on your local git branch:
 <pre>
 git commit -a -m "Short description of your changes"
 </pre>
-and push them to a new branch of the Trac server,
-e.g. <code>public/manifolds/topic</code>, replacing <code>topic</code> by the
-actual topic of your work:
-<pre>
-git push trac HEAD:public/manifolds/topic
-</pre>
-<p>
-<em>Remarks:</em> (i) if the branch <code>public/manifolds/topic</code> did not exist
-previously on the Trac server (this should be the case if this is your first push),
-it is created by the above command; (ii) no
-explicit password is required because the push uses the
-authentication provided by your public ssh key, as discussed above.
+Then push the branch to your fork <code>USERNAME/sage</code> on GitHub (i.e. to the remote labelled <code>origin</code>),
+following these <a href="https://github.com/sagemath/trac-to-github/blob/master/docs/Migration-Trac-to-Github.md#Instead-of-pushing-a-git-branch-to-a-Trac-ticket" target="_blank">instructions</a> to create a pull request to the develop branch of the upstream repository <code>sagemath/sage</code>.
 </p>
 
 <p>
-Having pushed your code to a new branch of the git repository on SageMath Trac, there
-remains to open a ticket, in order to submit your work for integration in SageMath.
-To this aim, log in at  <a href="https://trac.sagemath.org/" target="_blank">trac.sagemath.org</a>, click on the "New Ticket" button in the upper right and fill the various fields as follows:
-</p>
-<ul class="default">
-    <li><strong>Type</strong>: <em>defect</em> if you are fixing some bug or
-    <em>enhancement</em> if you are providing some new functionality</li>
-    <li><strong>Keywords</strong>: mathematical keywords corresponding to your changes</li>
-    <li><strong>Component</strong>: usually <em>manifolds</em></li>
-    <li><strong>CC</strong>: usernames of people whom you want to let know about your ticket</li>
-    <li><strong>Authors</strong>: your full name (not your username)</li>
-    <li><strong>Branch</strong>: name of the git branch that you have pushed to
-    the Trac server, i.e. <code>public/manifolds/topic</code> (replacing of course
-    <code>topic</code> by the actual topic of your ticket)</li>
-    <li><strong>Dependencies</strong>: number of a ticket (not integrated in SageMath yet) on which your ticket may depend on.</li>
-</ul>
-<p>
-You may leave the other fields to blank or to their default values; see
-the <a href="https://doc.sagemath.org/html/en/developer/trac.html#guidelines-for-opening-tickets"  target="_blank">guidelines for opening tickets</a> for more details.
-</p>
-<p>
-After your ticket is created, add it to the list of manifold tickets
-by clicking on the button "Modify" in the upper right of the <a href="https://trac.sagemath.org/ticket/30525" target="_blank">SageManifolds metaticket</a>.
-In addition, you may consider sending a message to the <a href="https://sympa.obspm.fr/wws/info/sagemanifolds.list" target="_blank">mailing list</a>
-to let other people know about your ticket and possibly review it.
 That's it! Thank you for contributing to the project!
 </p>
 
