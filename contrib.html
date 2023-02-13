@@ -92,11 +92,11 @@ the SageManifolds code lies in two subdirectories:
 
 <p>
 Before starting to modify the sources, make sure that you are dealing with the
-latest stable version of SageMath (9.7 at the moment). Even better, you could
+latest stable version of SageMath (9.8 at the moment). Even better, you could
 work on the latest <em>development</em> version of SageMath.
 This is even necessary if the planned changes depend upon previous SageManifolds tickets
 merged in the development version of SageMath
-(the so-called <em>beta</em> versions, for instance 9.8.beta0).
+(the so-called <em>beta</em> versions, for instance 10.0.beta0).
 </p>
 <p>
 To download and install the development version of SageMath, proceed as follows. First of all, make sure the prerequisites needed to build
@@ -134,7 +134,8 @@ the programming rules exposed in the <a href="https://doc.sagemath.org/html/en/d
 </p>
 
 <p>
-To rebuild SageMath after your changes, type (from the <code>SAGE_ROOT</code> directory):
+If your changes regard other files than Python ones (e.g. Cython source files), you need
+to rebuild SageMath by typing (from the <code>SAGE_ROOT</code> directory):
 </p>
 <pre>
 ./sage -b
@@ -173,7 +174,6 @@ To generate the documentation from the docstrings in Python source files, run
 (from the <code>SAGE_ROOT</code> directory)
 </p>
 <pre>
-./sage -b
 ./sage -docbuild reference/manifolds html
 </pre>
 <p>
@@ -191,12 +191,18 @@ which is at <code>SAGE_ROOT/local/share/doc/sage/html/en/reference/index.html</c
 <h3>5. Sharing your changes</h3>
 
 <p>
-When you are ready to share your changes, create a new commit on your local git branch:
+When you are ready to share your changes, create a new commit on your local git branch <code>my_changes</code>:
 <pre>
 git commit -a -m "Short description of your changes"
 </pre>
-Then push the branch to your fork <code>USERNAME/sage</code> on GitHub (i.e. to the remote labelled <code>origin</code>),
-following these <a href="https://github.com/sagemath/trac-to-github/blob/master/docs/Migration-Trac-to-Github.md#Instead-of-pushing-a-git-branch-to-a-Trac-ticket" target="_blank">instructions</a> to create a pull request to the develop branch of the upstream repository <code>sagemath/sage</code>.
+Then push the branch to your fork <code>USERNAME/sage</code> on GitHub (i.e. to the remote labelled <code>origin</code>):
+<pre>
+git push --set-upstram origin my_changes
+</pre>
+In the returned message, you will get some url link to open a pull request on
+the develop branch of <code>sagemath/sage</code>. When filling the pull request form, please select
+<code>c:manifolds</code> in the component field.
+See these <a href="https://github.com/sagemath/trac-to-github/blob/master/docs/Migration-Trac-to-Github.md#Instead-of-pushing-a-git-branch-to-a-Trac-ticket" target="_blank">instructions</a> for more details.
 </p>
 
 <p>
