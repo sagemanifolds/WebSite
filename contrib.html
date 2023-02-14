@@ -197,12 +197,24 @@ git commit -a -m "Short description of your changes"
 </pre>
 Then push the branch to your fork <code>USERNAME/sage</code> on GitHub (i.e. to the remote labelled <code>origin</code>):
 <pre>
-git push --set-upstram origin my_changes
+git push --set-upstream origin my_changes
 </pre>
-In the returned message, you will get some url link to open a pull request on
+This will create the new branch <code>my_changes</code> in the GitHub repository <code>USERNAME/sage</code> and will set it to the be the upstream of the local branch <code>my_changes</code> (thanks to the
+<code>--set-upstream</code> option).
+In the returned message on your terminal, you will get some url link for opening a pull request on
 the develop branch of <code>sagemath/sage</code>. When filling the pull request form, please select
-<code>c:manifolds</code> in the component field.
-See these <a href="https://github.com/sagemath/trac-to-github/blob/master/docs/Migration-Trac-to-Github.md#Instead-of-pushing-a-git-branch-to-a-Trac-ticket" target="_blank">instructions</a> for more details.
+<code>c: manifolds</code> and <code>s: needs review</code> in the <em>Labels</em> menu
+(<code>c:</code> stands for <em>component</em> and <code>s:</code> for <em>status</em>).
+If the reviewer is asking for some modifications and you implement them in the local branch <code>my_changes</code>, it will suffice to run
+<pre>
+git push
+</pre>
+to push the modifications to the remote branch <code>my_changes</code> of <code>USERNAME/sage</code>
+(no need to specify <code>--set-upstream</code>).
+</p>
+<p>
+For more details, see this
+<a href="https://github.com/sagemath/trac-to-github/blob/master/docs/Migration-Trac-to-Github.md#Instead-of-pushing-a-git-branch-to-a-Trac-ticket" target="_blank">page</a>.
 </p>
 
 <p>
