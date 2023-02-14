@@ -75,9 +75,6 @@ via the new methods <code>tensor_product</code> and <code>tensor_power</code>
 </p>
 
 <ul class="default">
-<li>Modernize the use of <code>super()</code>
-[<a href="https://github.com/sagemath/sage/issues/34532">#34532</a>]
-</li>
 <li>Sparse iterator for tensor components
 [<a href="https://github.com/sagemath/sage/issues/29619">#29619</a>]
 </li>
@@ -91,8 +88,15 @@ the category <code>Modules(R).TensorProducts()</code>
 <li>Canonicalize <code>sym</code> and <code>antisym</code> in tensors
 [<a href="https://github.com/sagemath/sage/issues/34451">#34451</a>]
 </li>
+<li>Faster fast path for <code>tensor_module</code>, <code>exterior_power</code>
+and <code>dual_exterior_power</code> in <code>VectorFieldModule</code>
+[<a href="https://github.com/sagemath/sage/issues/34486">#34486</a>]
+</li>
 <li>Make <code>FiniteRankFreeModule.tensor_module(0, 1)</code> return the dual
 [<a href="https://github.com/sagemath/sage/issues/34474">#34474</a>]
+</li>
+<li>Modernize the use of <code>super()</code>
+[<a href="https://github.com/sagemath/sage/issues/34532">#34532</a>]
 </li>
 <li>Slight documentation update for modules built upon a <code>FiniteRankFreeModule</code>
 [<a href="https://github.com/sagemath/sage/issues/34792">#34792</a>]
