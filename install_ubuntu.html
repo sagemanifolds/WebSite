@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Installing SageMath 10.1 in Ubuntu</title>
+<title>Installing SageMath 10.2 in Ubuntu</title>
 <meta name="keywords" content="">
 <meta name="description" content="SageManifolds: differential geometry and tensor calculus with SageMath">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic%7CRoboto">
@@ -53,20 +53,20 @@ sudo apt install sagemath-jupyter
 </code>
 </p>
 <p>
-However version 9.5 is pretty old now. Moreover, it does not permit to install
+However version 9.5 is pretty old by now. Moreover, it does not permit to install
 extra packages.
-If you would like to install version 10.1 instead, remove the system package
+If you would like to install version 10.2 instead, remove the system package
 <code>sagemath</code> if already installed, and follow the
 instructions below:
 </p>
 
-<h2>Installing SageMath 10.1 in Ubuntu 20.04 or 22.04</h2>
+<h2>Installing SageMath 10.2 in Ubuntu 20.04 or 22.04</h2>
 
 
 <p>
 The version of SageMath provided as a system package is only 9.0 for Ubuntu 20.04
 and 9.5 for Ubuntu 22.04.
-However building SageMath 10.1 from source in Ubuntu 20.04 or 22.04 is very easy.
+However building SageMath 10.2 from source in Ubuntu 20.04 or 22.04 is very easy.
 </p>
 
 <p>
@@ -91,7 +91,7 @@ sudo apt install texlive-latex-extra texlive-xetex latexmk pandoc dvipng
 </p>
 
 <p>
-Then you can download SageMath 10.1 sources and launch the build by typing (from you home directory or from the directory in which you want SageMath to be installed)
+Then you can download SageMath 10.2 sources and launch the build by typing (from you home directory or from the directory in which you want SageMath to be installed)
 </p>
 
 <pre>
@@ -121,7 +121,7 @@ sage -n
 
 <p>
 A Jupyter page should then open in your browser.
-Click on "New" and select "SageMath 10.1" to open a Jupyter notebook
+Click on "New" and select "SageMath 10.2" to open a Jupyter notebook
 with a SageMath kernel.
 </p>
 
@@ -139,10 +139,10 @@ sage -n jupyterlab
 
 
 
-<h2>Installing SageMath 10.2.beta* in Ubuntu 20.04 or 22.04</h2>
+<h2>Installing SageMath 10.3.beta* in Ubuntu 20.04 or 22.04</h2>
 
-To install the latest development (beta) version, follow the same
-instructions as above for SageMath 10.1, except for the <code>git clone</code>
+To install the latest development version (beta series), follow the same
+instructions as above for SageMath 10.2, except for the <code>git clone</code>
 line
 to be replaced by
 <pre>
