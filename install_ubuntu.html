@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Installing SageMath 10.3 in Ubuntu</title>
+<title>Installing SageMath 10.4 in Ubuntu</title>
 <meta name="keywords" content="">
 <meta name="description" content="SageManifolds: differential geometry and tensor calculus with SageMath">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic%7CRoboto">
@@ -41,32 +41,13 @@
 
         <main>
 
-<h2>Installing SageMath 9.5 in Ubuntu 22.04</h2>
-
-<p>
-SageMath 9.5 is provided as a system package in Ubuntu 22.04; to
-install it, it suffices to run the command
-</p>
-<p>
-<code>
-sudo apt install sagemath-jupyter
-</code>
-</p>
-<p>
-However version 9.5 is pretty old by now. Moreover, it does not permit to install
-extra packages.
-If you would like to install version 10.3 instead, remove the system package
-<code>sagemath</code> if already installed, and follow the
-instructions below:
-</p>
-
-<h2>Installing SageMath 10.3 in Ubuntu 20.04 or 22.04</h2>
+<h2>Installing SageMath 10.4 in Ubuntu 22.04 or 24.04</h2>
 
 
 <p>
-The version of SageMath provided as a system package is only 9.0 for Ubuntu 20.04
-and 9.5 for Ubuntu 22.04.
-However building SageMath 10.3 from source in Ubuntu 20.04 or 22.04 is very easy.
+There is no Ubuntu system package for SageMath in Ubuntu 24.04; there is one for Ubuntu 22.04 but it provides
+only SageMath 9.5, which is quite old by now.
+Fortunately, building SageMath 10.4 from source in Ubuntu 22.04 or 24.04 is very easy.
 </p>
 
 <p>
@@ -76,7 +57,7 @@ to build SageMath: simply open a terminal and type the single (long) line
 
 <p>
 <code>
-sudo apt install bc binutils bzip2 ca-certificates cliquer cmake curl ecl eclib-tools fflas-ffpack flintqs g++ gengetopt gfan gfortran git glpk-utils gmp-ecm lcalc libatomic-ops-dev libboost-dev libbraiding-dev libbrial-dev libbrial-groebner-dev libbz2-dev libcdd-dev libcdd-tools libcliquer-dev libcurl4-openssl-dev libec-dev libecm-dev libffi-dev libflint-arb-dev libflint-dev libfreetype6-dev libgc-dev libgd-dev libgf2x-dev libgiac-dev libgivaro-dev libglpk-dev libgmp-dev libgsl-dev libhomfly-dev libiml-dev liblfunction-dev liblrcalc-dev liblzma-dev libm4rie-dev libmpc-dev libmpfi-dev libmpfr-dev libncurses5-dev libntl-dev libopenblas-dev libpari-dev libpcre3-dev libplanarity-dev libppl-dev libprimesieve-dev libpython3-dev libqhull-dev libreadline-dev librw-dev libsingular4-dev libsqlite3-dev libssl-dev libsuitesparse-dev libsymmetrica2-dev libz-dev libzmq3-dev libzn-poly-dev m4 make nauty openssl palp pari-doc pari-elldata pari-galdata pari-galpol pari-gp2c pari-seadata patch perl pkg-config planarity ppl-dev python3-distutils python3-venv r-base-dev r-cran-lattice singular sqlite3 sympow tachyon tar tox xcas xz-utils
+sudo apt install automake bc binutils bzip2 ca-certificates cliquer cmake curl ecl eclib-tools fflas-ffpack flintqs g++ gengetopt gfan gfortran git glpk-utils gmp-ecm lcalc libatomic-ops-dev libboost-dev libbraiding-dev libbz2-dev libcdd-dev libcdd-tools libcliquer-dev libcurl4-openssl-dev libec-dev libecm-dev libffi-dev libflint-dev libfreetype-dev libgc-dev libgd-dev libgf2x-dev libgiac-dev libgivaro-dev libglpk-dev libgmp-dev libgsl-dev libhomfly-dev libiml-dev liblfunction-dev liblrcalc-dev liblzma-dev libm4rie-dev libmpc-dev libmpfi-dev libmpfr-dev libncurses-dev libntl-dev libopenblas-dev libpari-dev libpcre3-dev libplanarity-dev libppl-dev libprimesieve-dev libpython3-dev libqhull-dev libreadline-dev librw-dev libsingular4-dev libsqlite3-dev libssl-dev libsuitesparse-dev libsymmetrica2-dev zlib1g-dev libzmq3-dev libzn-poly-dev m4 make nauty openssl palp pari-doc pari-elldata pari-galdata pari-galpol pari-gp2c pari-seadata patch perl pkg-config planarity ppl-dev python3-setuptools python3-venv r-base-dev r-cran-lattice singular sqlite3 sympow tachyon tar tox xcas xz-utils
 </code>
 </p>
 
@@ -91,7 +72,7 @@ sudo apt install texlive-latex-extra texlive-xetex latexmk pandoc dvipng
 </p>
 
 <p>
-Then you can download SageMath 10.3 sources and launch the build by typing (from you home directory or from the directory in which you want SageMath to be installed)
+Then you can download SageMath 10.4 sources and launch the build by typing (from you home directory or from the directory in which you want SageMath to be installed)
 </p>
 
 <pre>
@@ -121,7 +102,7 @@ sage -n
 
 <p>
 A Jupyter page should then open in your browser.
-Click on "New" and select "SageMath 10.3" to open a Jupyter notebook
+Click on "New" and select "SageMath 10.4" to open a Jupyter notebook
 with a SageMath kernel.
 </p>
 
@@ -134,10 +115,10 @@ sage -n jupyterlab
 </pre>
 
 
-<h2>Installing SageMath 10.4.beta* in Ubuntu 20.04 or 22.04</h2>
+<h2>Installing SageMath 10.5.beta* in Ubuntu 22.04 or 24.04</h2>
 
 To install the latest development version (beta series), follow the same
-instructions as above for SageMath 10.3, except for the <code>git clone</code>
+instructions as above for SageMath 10.4, except for the <code>git clone</code>
 line
 to be replaced by
 <pre>
