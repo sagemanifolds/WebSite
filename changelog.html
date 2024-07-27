@@ -44,6 +44,50 @@
 
 <h2>Changelog</h2>
 
+<h3>SageMath <strong>10.4</strong> (19 July 2024)</h3>
+
+<p>
+<strong>New features:</strong>
+</p>
+
+<ul class="default">
+<li><code>FiniteRankFreeModuleMorphism.display</code>: Show matrix decorated with basis element names
+[<a href="https://github.com/sagemath/sage/pull/37825">#37825</a>]
+</li>
+<li><code>FiniteRankFreeModule.isomorphism_with_fixed_basis</code> now gives an instance of the new class <code>SetIsomorphism</code>, and its inverse is defined
+[<a href="https://github.com/sagemath/sage/pull/37512">#37512</a>]
+</li>
+<li>Class <code>FreeModuleAutomorphism</code> has new methods <code>characteristic_polynomial</code>, <code>fcp</code> and <code>minimal_polynomial</code>
+[<a href="https://github.com/sagemath/sage/pull/37826">#37826</a>]
+</li>
+<li>New classes <code>FreeModuleEndset</code> (as a subclass of <code>FreeModuleHomset</code>)
+and <code>FiniteRankFreeModuleEndomorphism</code> (as a subclass of <code>FiniteRankFreeModuleMorphism</code>) [<a href="https://github.com/sagemath/sage/pull/37831">#37831</a>]
+</li>
+
+</ul>
+
+
+<p>
+<strong>Bug fixes:</strong>
+</p>
+
+<ul class="default">
+<li>Fix sign error in the Kerr metric of the manifold catalog
+[<a href="https://github.com/sagemath/sage/issues/37970">#37970</a>]
+</li>
+<li>Small markup/formatting improvements in docstrings
+[<a href="https://github.com/sagemath/sage/issues/37829">#37829</a>]
+</li>
+<li>Fix LaTeX output of <code>FreeModuleTensor.display_comp</code>
+[<a href="https://github.com/sagemath/sage/issues/37823">#37823</a>]
+</li>
+<li>Fix bug in <code>TensorField.apply_map</code>
+[<a href="https://github.com/sagemath/sage/issues/37822">#37822</a>]
+</li>
+</ul>
+
+
+
 <h3>SageMath <strong>10.3</strong> (19 March 2024)</h3>
 
 <p>No change regarding the manifold code with respect to SageMath 10.2.</p>
