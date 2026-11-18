@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Installing SageMath 10.9 in Ubuntu</title>
+<title>Installing SageMath 10.10 in Ubuntu</title>
 <meta name="keywords" content="">
 <meta name="description" content="SageManifolds: differential geometry and tensor calculus with SageMath">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic%7CRoboto">
@@ -39,98 +39,70 @@
 <div id="wrapper">
     <div id="page" class="container">
 
-        <main>
+<main>
 
-<h2>Installing SageMath 10.9 in Ubuntu 22.04 or 24.04</h2>
+<h2>Installing SageMath 10.10 in Ubuntu 24.04 or 26.04</h2>
 
-
-<p>
-There is no Ubuntu system package for SageMath in Ubuntu 24.04; there is one for Ubuntu 22.04 but it provides
-only SageMath 9.5, which is quite old by now.
-Fortunately, a recently developed <a href="https://github.com/3-manifolds/sage_appimage/releases">AppImage</a> allows one to install SageMath 10.9 with just a few clicks.
+<p>There is no Ubuntu system package for SageMath in Ubuntu 24.04 or 26.04. Fortunately, it easy to install it
+with just a few shell commands typed in a terminal,
+thanks to the <a href="https://conda.io">Conda</a> package/environment manager:
 </p>
 
-<p>
-The following describes an alternative way to get SageMath 10.9 on Ubuntu 22.04 or 24.04,
-namely to build it from source, which turns out to be very easy.
+<h3>Step 1: install Conda via Miniforge</h3>
+
+<p>Either download Miniforge installer from
+<a href="https://conda-forge.org/download/">here</a>
+or run in a terminal
+</p>
+<p><code>
+curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+</code></p>
+
+<p>Then run the installer via</p>
+
+<p><code>
+bash Miniforge3-$(uname)-$(uname -m).sh
+</code></p>
+
+<p>Answer <em>yes</em> to the question <em>Proceed with initialization?</em><br>
+Close the terminal and reopen a new one to activate Conda (in the "base" environment).
 </p>
 
-<p>
-First, install the dependencies, i.e. the Ubuntu packages required
-to build SageMath: simply open a terminal and type the single (long) line
-</p>
+<h3>Step 2: create a new conda environment containing SageMath</h3>
 
-<p>
-<code>
-sudo apt install automake bc binutils bzip2 ca-certificates cliquer cmake curl ecl eclib-tools fflas-ffpack flintqs g++ gengetopt gfan gfortran git glpk-utils gmp-ecm lcalc libatomic-ops-dev libboost-dev libbraiding-dev libbz2-dev libcdd-dev libcdd-tools libcliquer-dev libcurl4-openssl-dev libec-dev libecm-dev libffi-dev libflint-dev libfreetype-dev libgc-dev libgd-dev libgf2x-dev libgiac-dev libgivaro-dev libglpk-dev libgmp-dev libgsl-dev libhomfly-dev libiml-dev liblfunction-dev liblrcalc-dev liblzma-dev libm4rie-dev libmpc-dev libmpfi-dev libmpfr-dev libncurses-dev libntl-dev libopenblas-dev libpari-dev libpcre3-dev libplanarity-dev libppl-dev libprimesieve-dev libpython3-dev libqhull-dev libreadline-dev librw-dev libsingular4-dev libsqlite3-dev libssl-dev libsuitesparse-dev libsymmetrica2-dev libtirpc-dev libzmq3-dev libzn-poly-dev m4 make nauty openssl palp pari-doc pari-elldata pari-galdata pari-galpol pari-gp2c pari-seadata patch perl pkg-config planarity ppl-dev python3-setuptools python3-venv r-base-dev r-cran-lattice singular sqlite3 sympow tachyon tar texinfo tox xcas xz-utils zlib1g-dev
-</code>
-</p>
+<p>Run the command</p>
 
-<p>To benefit from extra functionalities when running SageMath (e.g. exporting a Jupyter notebook to pdf),
-it is recommended to install some additional Ubuntu packages:
-</p>
+<p><code>
+conda create -n sage sage python=3.13
+</code></p>
 
-<p>
-<code>
-sudo apt install texlive-latex-extra texlive-xetex latexmk pandoc dvipng
-</code>
-</p>
+This will download SageMath from the
+<a href="https://conda-forge.org">conda-forge</a> repository and install it
+into a Conda environment named <code>sage</code>.
 
-<p>
-Then you can download SageMath 10.9 sources and launch the build by typing (from you home directory or from the directory in which you want SageMath to be installed)
-</p>
+<h3>Step 3: run SageMath</h3>
 
-<pre>
-git clone --branch master https://github.com/sagemath/sage.git
-cd sage
-make configure
-./configure
-MAKE="make -j8" make
-</pre>
+<p>Activate the Conda environment <code>sage</code>:</p>
 
-<p>The last command launches the build in parallel on 8 threads (as specified by <code>-j8</code>); adapt
-to your CPU (usually you may choose a number of threads that is twice the number of cores of your CPU).
-The build time is about half an hour on a modern CPU. Once it is finished, you can create a symbolic link by typing
-</p>
+<p><code>
+conda activate sage
+</code></p>
 
-<pre>
-sudo ln -sf $(pwd)/sage /usr/local/bin
-</pre>
-
-<p>
-Then you can change to any directory and start SageMath in Jupyter by running
-</p>
-
-<pre>
-sage -n
-</pre>
-
-<p>
-A Jupyter page should then open in your browser.
-Click on "New" and select "SageMath 10.9" to open a Jupyter notebook
-with a SageMath kernel.
-</p>
-
-<p>
-To use JupyterLab, simply run
-</p>
-
-<pre>
+<p>and run SageMath in a Jupyterlab notebook by typing</p>
+<p><code>
 sage -n jupyterlab
-</pre>
+</code></p>
 
+<p>Alternatively, you may also run SageMath in a classic Jupyter notebook via
+<code>sage -n</code>.
+You may also run it in console mode by typing simply
+<code>sage</code>.</p>
 
-<h2>Installing SageMath 10.10.beta* in Ubuntu 22.04 or 24.04</h2>
+<p>That's it!<br>
+<em>NB:</em> next time you want to run SageMath on your computer, only Step 3 is necessary.<br>
+For more details, see he <a href="https://doc.sagemath.org/html/en/installation/conda.html">Install from conda-forge</a> section of the SageMath Installation Manual.</p>
 
-To install the latest development version (beta series), follow the same
-instructions as above for SageMath 10.9, except for the <code>git clone</code>
-line
-to be replaced by
-<pre>
-git clone --branch develop https://github.com/sagemath/sage.git
-</pre>
-
-        </main>
+</main>
 
         <aside>
             <nav>
