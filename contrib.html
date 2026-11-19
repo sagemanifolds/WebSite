@@ -76,71 +76,91 @@ Please follow the
 
 Given the open-source nature of SageMath, it is quite easy to improve some parts of SageManifolds or to implement new functionalities. You may first have a look
 at these <a href="jncf2018/index.html">lecture notes</a>, which describe some details of the implementation.
+The main steps for downloading and modifying the source code, as well as submitting your work for integration
+in SageMath, are summarized below. For more details see the official
+<a href="https://doc.sagemath.org/html/en/developer/">Sage Developer Guide</a>, in particular the
+<a href="https://doc.sagemath.org/html/en/developer/walkthrough.html">Development Walk-trhough</a> section.
 
 <h3>1. Starting from the latest sources</h3>
 <p>
-To write some code, you need to edit the Python source files. In the root directory of your SageMath install,
-hereafter called <code>SAGE_ROOT</code>
-(you can locate this directory by typing <code>sage -root</code> in a terminal
-or <code>!sage -root</code> in some cell of a Jupyter notebook),
-the SageManifolds code lies in two subdirectories:
-</p>
-<ul class="default">
-    <li><code>SAGE_ROOT/src/sage/tensor/modules/</code> for the pure algebraic
-    part (<a href="tensor_modules.html">tensors on free modules</a>)</li>
-    <li><code>SAGE_ROOT/src/sage/manifolds/</code> for the topological and differential parts</li>
-</ul>
-
+To write some code, you need to edit the Python source files.
+They are available from the
+<a href="https://github.com/sagemath/sage" target="_blank">SageMath github repository</a>.
 <p>
-Before starting to modify the sources, make sure that you are using the
-latest stable version of SageMath (10.10 at the moment). Even better, you could
-work on the latest <em>development</em> version of SageMath
-(the so-called <em>beta</em> versions, for instance 10.11.beta0).
-</p>
-<p>
-To download and install the development version of SageMath, proceed as follows. First of all, make sure the prerequisites needed to build
-SageMath from sources are installed on your computer: check this
-<a href="https://doc.sagemath.org/html/en/installation/source.html#prerequisites" target="_blank">page</a>
-or this <a href="install_ubuntu.html">page for Ubuntu/Debian</a>.
-Then, create a (free) account at <a href="https://github.com" target="_blank">github.com</a>,
+To download and install the latest development version of SageMath, proceed as follows.
+If you don't have one already, create a (free) account at <a href="https://github.com" target="_blank">github.com</a>,
 if you don't have any yet, and <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository" target="_blank">fork</a> the repository <a href="https://github.com/sagemath/sage" target="_blank"><code>sagemath/sage</code></a> under
 <code>USERNAME/sage</code>, where <code>USERNAME</code> is your GitHub account name.
 Next type the following commands in a terminal from,
 let us say, your home directory (<em>not</em> the root directory of your current
-stable SageMath install):
+stable SageMath install if any):
 <br><br>
 <code>git clone https://github.com/USERNAME/sage.git</code> &nbsp; &nbsp; (download
 SageMath sources into a new directory, named <code>sage</code>) <br>
-<code>cd sage</code> &nbsp; &nbsp; (this directory will be the <code>SAGE_ROOT</code> directory)<br>
+<code>cd sage</code> <br>
 <code>git remote add upstream https://github.com/sagemath/sage.git</code> <br>
-<code>make configure</code> <br>
-<code>./configure</code> <br>
-<code>MAKE="make -j8" make</code> &nbsp; &nbsp; (compile SageMath on 8 threads; adapt to your CPU) <br><br>
+<code>git pull upstream develop</code>  &nbsp; &nbsp; (downloads the latest development sources)<br>
 </p>
 
-<h3>2. Coding your changes</h3>
+<h3>2. Building SageMath from source</h3>
+
+<p>The package/environment manager Conda is used to manage dependencies when building SageMath. If Conda is not already installed on your
+computer, either download the Miniforge installer from
+<a href="https://conda-forge.org/download/">here</a>
+or run in a terminal
+<br><br>
+<code>
+curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+</code><br>
+<br>
+Then run the installer via
+<br><br>
+<code>bash Miniforge3-$(uname)-$(uname -m).sh</code><br>
+<br>
+Answer <em>yes</em> to the question <em>Proceed with initialization?</em><br>
+Close the terminal and reopen a new one to activate Conda (in the "base" environment).
+</p>
+
+<p>Go back to the <code>sage</code> directory created by the <code>git clone</code> command
+above (hereafter named <code>SAGE_ROOT</code>) and create a new Conda environment named <code>sage-dev</code>
+from the file <code>environment-PYTHON_VERSION-OS.yml</code> in that directory,
+where <code>PYTHON_VERSION</code> is the version number of Python on your computer
+(e.g. <code>3.14</code>) and <code>OS</code> is the name of your operating system
+(e.g. <code>linux</code>):
+<br><br>
+<code>conda env create --file environment-3.14-linux.yml --name sage-dev</code><br>
+<br>
+Then run the following commands:
+<br><br>
+<code>conda activate sage-dev</code> &nbsp; &nbsp; (activates the environment <code>sage-dev</code>)<br>
+<code>pip install --no-build-isolation --editable .</code> &nbsp; &nbsp; (builds SageMath)<br>
+<code>pip install jupyterlab</code> <br>
+<code>pip install notebook</code>  &nbsp; &nbsp; (the classic (legacy) jupyter notebook)<br><br>
+At this stage, you should have a working version of the development version of SageMath, which you can run in Jupyterlab by typing<br><br>
+<code>./sage -n jupyterlab</code>
+</p>
+
+<h3>3. Coding your changes</h3>
 
 <p>
-Whatever method you choose (i.e. working in the <code>src</code> subdirectory of either your stable SageMath install or the development version), it is recommended to create
-a new git branch to store your changes, in order to revert easily to the original
-version:
+Create a new git branch to store your changes:
 <br><br>
 <code>git checkout -b my_changes</code> &nbsp; &nbsp; (creates the git branch <code>my_changes</code> and makes it the current branch)
 <br><br>
-Then edit or add some source files in <code>SAGE_ROOT/src/sage/manifolds/</code> (or <code>SAGE_ROOT/src/sage/tensor/modules/</code> for pure algebraic stuff). It is mandatory to follow
+The SageManifolds code lies in two subdirectories:
+</p>
+<ul class="default">
+    <li><code>src/sage/tensor/modules/</code> for the pure algebraic
+    part (<a href="tensor_modules.html">tensors on free modules</a>)</li>
+    <li><code>src/sage/manifolds/</code> for the topological and differential parts</li>
+</ul>
+Edit or add some source files in these directories. It is mandatory to follow
 the programming rules exposed in the <a href="https://doc.sagemath.org/html/en/developer/" target="_blank">Sage Developer’s Guide</a>; in particular read carefully the section
 <a href="https://doc.sagemath.org/html/en/developer/#writing-code-for-sage" target="_blank">Writing Code for Sage</a>.
 </p>
 
-<p>
-If your changes regard other files than Python ones (e.g. Cython source files), you need
-to rebuild SageMath by typing (from the <code>SAGE_ROOT</code> directory):
-</p>
-<pre>
-./sage -b
-</pre>
 
-<h3>3. Running doctests</h3>
+<h3>4. Running doctests</h3>
 
 <p>
 Doctests are <a href="https://doc.sagemath.org/html/en/developer/coding_basics.html#writing-testable-examples" target="_blank">testable examples</a> that are embedded in docstrings of Python classes and functions
@@ -159,7 +179,7 @@ doctests:
 ./sage -coverage src/sage/manifolds/
 </pre>
 
-<h3>4. Generating and checking the documentation</h3>
+<h3>5. Generating and checking the documentation</h3>
 
 <p>
 Please take time to document your changes as much as possible, especially by providing
@@ -187,7 +207,7 @@ This is actually the manifolds section of the whole SageMath reference manual,
 which is at <code>SAGE_ROOT/local/share/doc/sage/html/en/reference/index.html</code>.
 </p>
 
-<h3>5. Sharing your changes</h3>
+<h3>6. Sharing your changes</h3>
 
 <p>
 When you are ready to share your changes, create a new commit on your local git branch <code>my_changes</code>:
